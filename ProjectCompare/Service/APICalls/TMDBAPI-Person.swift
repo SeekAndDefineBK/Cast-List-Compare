@@ -9,58 +9,60 @@ import Foundation
 
 extension TMDBAPI {
     // MARK: Search with Query
-    func searchForPerson(query: String, pageNumber: Int) async -> [Person]? {
+    func searchForPerson(with query: String, pageNumber: Int) async -> [Person]? {
         // convert user query into string value compatible with url scheme
         let urlQuery = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         
         // build url string
         let urlString = "https://api.themoviedb.org/3/search/person?api_key=\(key)&language=en-US&query=\(urlQuery ?? "")&page=\(pageNumber)"
         
-        // if the url is bad, fail silently
-        guard let url = URL(string: urlString) else {
-            print("Bad URL: \(urlString)")
+        do {
+            // use urlString to perform api call
+            let data = try await performAPICall(with: urlString)
+            
+            // data that returns is either cached or a new request
+            return convertDataToPersonArray(with: data)
+        } catch {
+            print("Failed to search for a new person \(error.localizedDescription)")
             return nil
         }
-        
-        // build the url request to check against cache
-        let request = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 30)
-        
-        // First Check if cachedData contains this request
-        if let cachedDate = cache.cachedResponse(for: request)?.data {
+    }
             
-            // convered cachedData to Person Array
-            return convertDataToPersonArray(cachedDate)
-        } else {
+    // MARK: Get Person Credits
+    func getCredits(for person: Person) async -> CombinedCreditsJSON? {
+        // build url string with Person ID
+        let urlString = "https://api.themoviedb.org/3/person/\(person.id)/combined_credits?api_key=\(key)"
+        
+        do {
+            // use urlString to perform api call
+            let data = try await performAPICall(with: urlString)
             
-            // Request is not contained in Cache so create a new API request
-            do {
-                let (data, _) = try await URLSession.shared.data(for: request)
-                return convertDataToPersonArray(data)
-            } catch {
-                print("Failed to search for a new pers \(error.localizedDescription)")
-                return nil
-            }
+            return decodeCombinedCredits(with: data)
+        } catch {
+            print("Failed to collect combined credits for \(person.name). ID: \(person.id). urlString: \(urlString)")
+            return nil
         }
     }
     
-    // MARK: Search with ID
-        
-    // MARK: Get Person Credits
-    
-    // MARK: Convert Data to Person Object
-    func convertDataToPerson(_ data: Data) -> Person? {
+    // MARK:
+    private func decodeCombinedCredits(with data: Data) -> CombinedCreditsJSON? {
+        // Initialize Decoder
         let decoder = JSONDecoder()
         
         do {
-            return try decoder.decode(Person.self, from: data)
+            // Convert data to CombinedCreditsJSON
+            let results = try decoder.decode(CombinedCreditsJSON.self, from: data)
+            
+            return results
         } catch {
-            print(error.localizedDescription)
+            // Print raw error if this occurs and return nothing
+            print("Failed to convert data to CombinedCreditsJSON. Error \(error)")
             return nil
         }
     }
     
     //MARK: Convert Data to Person Array
-    func convertDataToPersonArray(_ data: Data) -> [Person] {
+    private func convertDataToPersonArray(with data: Data) -> [Person] {
         // Initialize Decoder
         let decoder = JSONDecoder()
         
@@ -73,7 +75,7 @@ extension TMDBAPI {
             return search.results
         } catch {
             // Print raw error if this occurs and return nothing
-            print(error)
+            print("Failed to convert data to Person array. Error: \(error)")
             return []
         }
     }
