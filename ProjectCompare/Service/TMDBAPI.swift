@@ -7,13 +7,12 @@
 
 import Foundation
 
-@Observable
-class TMDBAPI {
+class TMDBAPI: ObservableObject {
     // Collect key
     let key = TMDBAPIKey.key
     
     // Store a cache of URL Responses to prevent pinging server too much
-    var cache = URLCache.shared
+    @Published var cache = URLCache.shared
         
     init() {
         // set storage and memory limits for cache

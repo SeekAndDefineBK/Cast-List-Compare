@@ -7,7 +7,6 @@
 
 import Foundation
 
-@Observable
 class Person: Identifiable, Hashable, Equatable, Codable {
     var id: Int
     var name: String
@@ -41,8 +40,8 @@ class Person: Identifiable, Hashable, Equatable, Codable {
     
     // MARK: Codable Conformance
     enum CodingKeys: CodingKey {
-            case id, name, popularity, profile_path
-        }
+        case id, name, popularity, profile_path
+    }
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
