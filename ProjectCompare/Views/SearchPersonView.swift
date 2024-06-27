@@ -8,32 +8,43 @@
 import SwiftUI
 
 struct SearchPersonView: View {
-    @Environment(TMDBAPI.self) var tmdb: TMDBAPI
+    @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var tmdb: TMDBAPI
     
     @State private var query: String = ""
     @State private var searchResults: [Person] = []
+    @Binding var selectedPerson: Person?
     
     var body: some View {
         VStack {
             TextField("Enter Person Name", text: $query)
+                .textFieldStyle(.roundedBorder)
             
             Button("Search") {
-                Task {
-                    searchResults = await tmdb.searchForPerson(query: query, pageNumber: 1) ?? []
-                }
+                performSearch()
             }
             
             List {
                 ForEach(searchResults) { person in
-                    Text(person.name)
+                    Button {
+                        withAnimation {
+                            selectedPerson = person
+                            dismiss()
+                        }
+                    } label: {
+                        Text(person.name)
+                    }
+                    .foregroundStyle(.foreground)
                 }
             }
             
             Text("Search result attribution")
         }
     }
-}
-
-#Preview {
-    SearchPersonView()
+    
+    func performSearch() {
+        Task {
+            searchResults = await tmdb.searchForPerson(with: query, pageNumber: 1) ?? []
+        }
+    }
 }
