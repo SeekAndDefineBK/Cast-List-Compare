@@ -8,32 +8,35 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var viewModel = ContentViewModel()
+    @StateObject private var viewModel = ContentViewModel()
     
-    @EnvironmentObject var tmdb: TMDBAPI
+    // accessing through EnvironmentObject to reduce number of instances of TMDBAPI object allocated
+    let tmdb = TMDBAPI.shared
+    
+    // store selectedTab in user defaults to allow user to start where they left off
     @AppStorage("selectedTab") var selectedTab: Int = 0
-    
+        
     var body: some View {
-        TabView {
+        TabView(selection: $selectedTab) {
+            // MARK: Main Tab
             VStack {
                 Text("Description")
                 
                 PersonContainerView(person: $viewModel.person1)
-                Text("Person 1 = \(viewModel.person1?.name ?? "None")")
-                
                 PersonContainerView(person: $viewModel.person2)
-                Text("Person  = \(viewModel.person2?.name ?? "None")")
                      
-                Text("Compare Button")
+                Button {
+                    viewModel.showingCompare = true
+                } label: {
+                    Text("Compare")
+                }
+                .buttonStyle(.borderedProminent) // signifies main action user should take
+                .disabled(viewModel.person1 == nil || viewModel.person2 == nil)
+                
             }
             .tag(0)
-            .sheet(isPresented: $viewModel.searchForPerson1) {
-                SearchPersonView(selectedPerson: $viewModel.person1)
-            }
-            .sheet(isPresented: $viewModel.searchForPerson2) {
-                SearchPersonView(selectedPerson: $viewModel.person2)
-            }
-            
+
+            // MARK: Secondary tab for Settings, History, Attribution
             VStack {
                 Text("Settings")
                 Text("History")
@@ -41,7 +44,22 @@ struct ContentView: View {
             }
             .tag(1)
         }
-        .tabViewStyle(.page)
+        .tabViewStyle(.page) // allows user to change tab with swipe
+        .sheet(isPresented: $viewModel.searchForPerson1) {
+            SearchPersonView(selectedPerson: $viewModel.person1)
+        }
+        .sheet(isPresented: $viewModel.searchForPerson2) {
+            SearchPersonView(selectedPerson: $viewModel.person2)
+        }
+        .sheet(isPresented: $viewModel.showingCompare) {
+            if let person1 = viewModel.person1, let person2 = viewModel.person2 {
+                CompareView(person1: person1, person2: person2)
+            } else {
+                // Fallback view in case person1 and or person2 is nil
+                Text("Error loading comparison view")
+            }
+            
+        }
     }
 }
 
@@ -52,6 +70,7 @@ extension ContentView {
         @Published var person2: Person?
         @Published var searchForPerson1 = false
         @Published var searchForPerson2 = false
+        @Published var showingCompare = false
         
         // MARK: ViewModel Initializers
         init() {}
