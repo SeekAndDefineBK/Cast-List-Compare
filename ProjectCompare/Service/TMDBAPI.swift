@@ -7,13 +7,16 @@
 
 import Foundation
 
-class TMDBAPI: ObservableObject {
+class TMDBAPI {
     // Collect key
     let key = TMDBAPIKey.key
     
     // Store a cache of URL Responses to prevent pinging server too much
-    @Published var cache = URLCache.shared
-        
+    var cache = URLCache.shared
+    
+    // Singleton instance of TMDBAPI
+    static let shared = TMDBAPI()
+    
     init() {
         // set storage and memory limits for cache
         cache.diskCapacity = 100 * 1024 * 1024 //100mb Storage
