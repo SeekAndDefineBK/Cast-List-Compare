@@ -21,6 +21,10 @@
 		4018C6672C2BAB960005C2C4 /* TMDBAPI-Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4018C6662C2BAB960005C2C4 /* TMDBAPI-Person.swift */; };
 		4018C66C2C2BBC360005C2C4 /* PersonSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4018C66B2C2BBC360005C2C4 /* PersonSearchResult.swift */; };
 		4018C66E2C2BC5E40005C2C4 /* SearchPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4018C66D2C2BC5E40005C2C4 /* SearchPersonView.swift */; };
+		401DD08E2C2E632900A44B74 /* MediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DD08D2C2E632900A44B74 /* MediaType.swift */; };
+		402F49CD2C2E0DEB00DBDDE4 /* CompareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402F49CC2C2E0DEB00DBDDE4 /* CompareView.swift */; };
+		402F49CF2C2E119B00DBDDE4 /* SharedCredits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402F49CE2C2E119B00DBDDE4 /* SharedCredits.swift */; };
+		402F49D22C2E133800DBDDE4 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402F49D12C2E133800DBDDE4 /* Array.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +43,10 @@
 		4018C6662C2BAB960005C2C4 /* TMDBAPI-Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TMDBAPI-Person.swift"; sourceTree = "<group>"; };
 		4018C66B2C2BBC360005C2C4 /* PersonSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonSearchResult.swift; sourceTree = "<group>"; };
 		4018C66D2C2BC5E40005C2C4 /* SearchPersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPersonView.swift; sourceTree = "<group>"; };
+		401DD08D2C2E632900A44B74 /* MediaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaType.swift; sourceTree = "<group>"; };
+		402F49CC2C2E0DEB00DBDDE4 /* CompareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareView.swift; sourceTree = "<group>"; };
+		402F49CE2C2E119B00DBDDE4 /* SharedCredits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedCredits.swift; sourceTree = "<group>"; };
+		402F49D12C2E133800DBDDE4 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				401146972C2D0C7200B47803 /* PersonContainer.swift */,
+				402F49CC2C2E0DEB00DBDDE4 /* CompareView.swift */,
 			);
 			path = PersonViews;
 			sourceTree = "<group>";
@@ -79,6 +88,7 @@
 		4018C62F2C2B5CC20005C2C4 /* ProjectCompare */ = {
 			isa = PBXGroup;
 			children = (
+				402F49D02C2E132100DBDDE4 /* Extension */,
 				4018C6412C2B5FD10005C2C4 /* Views */,
 				4018C6402C2B5FC60005C2C4 /* Service */,
 				4018C6342C2B5CC30005C2C4 /* Assets.xcassets */,
@@ -124,6 +134,8 @@
 				4018C6502C2BA7F10005C2C4 /* Person.swift */,
 				4018C66B2C2BBC360005C2C4 /* PersonSearchResult.swift */,
 				4018C6542C2BA8030005C2C4 /* Credits.swift */,
+				401DD08D2C2E632900A44B74 /* MediaType.swift */,
+				402F49CE2C2E119B00DBDDE4 /* SharedCredits.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -135,6 +147,14 @@
 				401146902C2CFD8A00B47803 /* TMDBAPI-Shared.swift */,
 			);
 			path = APICalls;
+			sourceTree = "<group>";
+		};
+		402F49D02C2E132100DBDDE4 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				402F49D12C2E133800DBDDE4 /* Array.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,9 +233,13 @@
 				4018C6672C2BAB960005C2C4 /* TMDBAPI-Person.swift in Sources */,
 				401146812C2CEBCB00B47803 /* TMDBAPIKey.swift in Sources */,
 				4018C6312C2B5CC20005C2C4 /* ProjectCompareApp.swift in Sources */,
+				402F49D22C2E133800DBDDE4 /* Array.swift in Sources */,
+				402F49CD2C2E0DEB00DBDDE4 /* CompareView.swift in Sources */,
+				402F49CF2C2E119B00DBDDE4 /* SharedCredits.swift in Sources */,
 				4018C66E2C2BC5E40005C2C4 /* SearchPersonView.swift in Sources */,
 				4018C64E2C2BA24B0005C2C4 /* TMDBKeyProtocol.swift in Sources */,
 				401146952C2D0BC300B47803 /* ContentView.swift in Sources */,
+				401DD08E2C2E632900A44B74 /* MediaType.swift in Sources */,
 				4018C6552C2BA8030005C2C4 /* Credits.swift in Sources */,
 				401146982C2D0C7200B47803 /* PersonContainer.swift in Sources */,
 				4018C64C2C2B62B80005C2C4 /* TMDBAPI.swift in Sources */,
