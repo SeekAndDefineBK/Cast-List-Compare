@@ -9,12 +9,10 @@ import SwiftUI
 
 @main
 struct ProjectCompareApp: App {
-    @StateObject private var tmdb = TMDBAPI()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(tmdb)
         }
     }
 }

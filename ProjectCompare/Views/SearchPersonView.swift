@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SearchPersonView: View {
     @Environment(\.dismiss) var dismiss
-    @EnvironmentObject var tmdb: TMDBAPI
+    let tmdb = TMDBAPI.shared
     
     @State private var query: String = ""
     @State private var searchResults: [Person] = []
