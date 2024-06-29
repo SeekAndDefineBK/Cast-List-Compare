@@ -32,7 +32,7 @@ struct SearchPersonView: View {
                             dismiss()
                         }
                     } label: {
-                        Text(person.name)
+                        PersonProfileView(person: person)
                     }
                     .foregroundStyle(.foreground)
                 }
