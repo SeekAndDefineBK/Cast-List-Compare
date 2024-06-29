@@ -1,5 +1,5 @@
 {
-  "originHash" : "c4f7ccd8c723f75f7a47a12392adea4491392c27c266ce47cce720d77cb1e9dd",
+  "originHash" : "ff0a2240384fb8a9db34d93f07731603bab319dff5f6df5e2316e6c914460ec2",
   "pins" : [
     {
       "identity" : "cachedasyncimage",
@@ -8,6 +8,15 @@
       "state" : {
         "revision" : "cb253e111528c082381af54b67dab7a15eefde16",
         "version" : "2.6.0"
+      }
+    },
+    {
+      "identity" : "tabtitlebar",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SeekAndDefineBK/TabTitleBar",
+      "state" : {
+        "branch" : "main",
+        "revision" : "2bd4e014f396be7ac8f33e38e1d7691df494e9ed"
       }
     }
   ],
