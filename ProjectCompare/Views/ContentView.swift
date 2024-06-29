@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TabTitleBar
 
 struct ContentView: View {
     @StateObject private var viewModel = ContentViewModel()
@@ -17,33 +18,43 @@ struct ContentView: View {
     @AppStorage("selectedTab") var selectedTab: Int = 0
         
     var body: some View {
-        TabView(selection: $selectedTab) {
-            // MARK: Main Tab
-            VStack {
-                Text("Description")
-                
-                PersonContainer(person: $viewModel.person1)
-                PersonContainer(person: $viewModel.person2)
-                     
-                Button {
-                    viewModel.showingCompare = true
-                } label: {
-                    Text("Compare")
+        VStack {
+            TabView(selection: $selectedTab) {
+                // MARK: Main Tab
+                VStack {
+                    Text("Description")
+                    
+                    PersonContainer(person: $viewModel.person1)
+                    PersonContainer(person: $viewModel.person2)
+                         
+                    Button {
+                        viewModel.showingCompare = true
+                    } label: {
+                        Text("Compare")
+                    }
+                    .buttonStyle(.borderedProminent) // signifies main action user should take
+                    .disabled(viewModel.person1 == nil || viewModel.person2 == nil)
+                    
                 }
-                .buttonStyle(.borderedProminent) // signifies main action user should take
-                .disabled(viewModel.person1 == nil || viewModel.person2 == nil)
-                
-            }
-            .tag(0)
+                .tag(0)
 
-            // MARK: Secondary tab for Settings, History, Attribution
-            VStack {
-                Text("Settings")
-                Text("History")
-                Text("Attribution")
+                // MARK: Secondary tab for Settings, History, Attribution
+                VStack {
+                    Text("Settings")
+                    Text("History")
+                    Text("Attribution")
+                }
+                .tag(1)
             }
-            .tag(1)
+            TabTitleBar(
+                currentTabSelection: $selectedTab,
+                tabItems: [
+                    TabItem(view: Text("Search"), index: 0, symbol: "magnifyingglass"),
+                    TabItem(view: Text("App Info"), index: 1, symbol: "ellipsis.circle")
+                ]
+            )
         }
+        
         .tabViewStyle(.page) // allows user to change tab with swipe
         .sheet(isPresented: $viewModel.searchForPerson1) {
             SearchPersonView(selectedPerson: $viewModel.person1)
