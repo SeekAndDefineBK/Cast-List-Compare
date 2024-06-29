@@ -22,6 +22,11 @@
 		4018C66C2C2BBC360005C2C4 /* PersonSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4018C66B2C2BBC360005C2C4 /* PersonSearchResult.swift */; };
 		4018C66E2C2BC5E40005C2C4 /* SearchPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4018C66D2C2BC5E40005C2C4 /* SearchPersonView.swift */; };
 		401DD08E2C2E632900A44B74 /* MediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DD08D2C2E632900A44B74 /* MediaType.swift */; };
+		401DD0912C2F2ED500A44B74 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 401DD0902C2F2ED500A44B74 /* CachedAsyncImage */; };
+		401DD0932C2F2F2500A44B74 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DD0922C2F2F2500A44B74 /* PersonCell.swift */; };
+		401DD0962C2F320700A44B74 /* PersonProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DD0952C2F320700A44B74 /* PersonProfileView.swift */; };
+		401DD0992C2FABE800A44B74 /* CreditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DD0982C2FABE800A44B74 /* CreditProfileView.swift */; };
+		401DD09B2C2FB18500A44B74 /* CreditCompareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DD09A2C2FB18500A44B74 /* CreditCompareView.swift */; };
 		402F49CD2C2E0DEB00DBDDE4 /* CompareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402F49CC2C2E0DEB00DBDDE4 /* CompareView.swift */; };
 		402F49CF2C2E119B00DBDDE4 /* SharedCredits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402F49CE2C2E119B00DBDDE4 /* SharedCredits.swift */; };
 		402F49D22C2E133800DBDDE4 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402F49D12C2E133800DBDDE4 /* Array.swift */; };
@@ -44,6 +49,10 @@
 		4018C66B2C2BBC360005C2C4 /* PersonSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonSearchResult.swift; sourceTree = "<group>"; };
 		4018C66D2C2BC5E40005C2C4 /* SearchPersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPersonView.swift; sourceTree = "<group>"; };
 		401DD08D2C2E632900A44B74 /* MediaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaType.swift; sourceTree = "<group>"; };
+		401DD0922C2F2F2500A44B74 /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
+		401DD0952C2F320700A44B74 /* PersonProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonProfileView.swift; sourceTree = "<group>"; };
+		401DD0982C2FABE800A44B74 /* CreditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditProfileView.swift; sourceTree = "<group>"; };
+		401DD09A2C2FB18500A44B74 /* CreditCompareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCompareView.swift; sourceTree = "<group>"; };
 		402F49CC2C2E0DEB00DBDDE4 /* CompareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareView.swift; sourceTree = "<group>"; };
 		402F49CE2C2E119B00DBDDE4 /* SharedCredits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedCredits.swift; sourceTree = "<group>"; };
 		402F49D12C2E133800DBDDE4 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
@@ -54,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				401DD0912C2F2ED500A44B74 /* CachedAsyncImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +73,8 @@
 		401146962C2D0C5D00B47803 /* PersonViews */ = {
 			isa = PBXGroup;
 			children = (
+				401DD0922C2F2F2500A44B74 /* PersonCell.swift */,
+				401DD0952C2F320700A44B74 /* PersonProfileView.swift */,
 				401146972C2D0C7200B47803 /* PersonContainer.swift */,
 				402F49CC2C2E0DEB00DBDDE4 /* CompareView.swift */,
 			);
@@ -108,11 +120,10 @@
 		4018C6402C2B5FC60005C2C4 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				401146802C2CEBCB00B47803 /* TMDBAPIKey.swift */,
 				4018C64B2C2B62B80005C2C4 /* TMDBAPI.swift */,
+				401DD0942C2F2FB900A44B74 /* Authentication */,
 				4018C6652C2BAB370005C2C4 /* APICalls */,
 				4018C64F2C2BA7DC0005C2C4 /* Objects */,
-				4018C64D2C2BA24B0005C2C4 /* TMDBKeyProtocol.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -121,8 +132,9 @@
 			isa = PBXGroup;
 			children = (
 				4018C6302C2B5CC20005C2C4 /* ProjectCompareApp.swift */,
-				4018C66D2C2BC5E40005C2C4 /* SearchPersonView.swift */,
 				401146942C2D0BC300B47803 /* ContentView.swift */,
+				4018C66D2C2BC5E40005C2C4 /* SearchPersonView.swift */,
+				401DD0972C2FABD300A44B74 /* CreditViews */,
 				401146962C2D0C5D00B47803 /* PersonViews */,
 			);
 			path = Views;
@@ -149,6 +161,24 @@
 			path = APICalls;
 			sourceTree = "<group>";
 		};
+		401DD0942C2F2FB900A44B74 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				401146802C2CEBCB00B47803 /* TMDBAPIKey.swift */,
+				4018C64D2C2BA24B0005C2C4 /* TMDBKeyProtocol.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		401DD0972C2FABD300A44B74 /* CreditViews */ = {
+			isa = PBXGroup;
+			children = (
+				401DD0982C2FABE800A44B74 /* CreditProfileView.swift */,
+				401DD09A2C2FB18500A44B74 /* CreditCompareView.swift */,
+			);
+			path = CreditViews;
+			sourceTree = "<group>";
+		};
 		402F49D02C2E132100DBDDE4 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +203,9 @@
 			dependencies = (
 			);
 			name = ProjectCompare;
+			packageProductDependencies = (
+				401DD0902C2F2ED500A44B74 /* CachedAsyncImage */,
+			);
 			productName = ProjectCompare;
 			productReference = 4018C62D2C2B5CC20005C2C4 /* ProjectCompare.app */;
 			productType = "com.apple.product-type.application";
@@ -201,6 +234,9 @@
 				Base,
 			);
 			mainGroup = 4018C6242C2B5CC20005C2C4;
+			packageReferences = (
+				401DD08F2C2F2ED500A44B74 /* XCRemoteSwiftPackageReference "CachedAsyncImage" */,
+			);
 			productRefGroup = 4018C62E2C2B5CC20005C2C4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -234,14 +270,18 @@
 				401146812C2CEBCB00B47803 /* TMDBAPIKey.swift in Sources */,
 				4018C6312C2B5CC20005C2C4 /* ProjectCompareApp.swift in Sources */,
 				402F49D22C2E133800DBDDE4 /* Array.swift in Sources */,
+				401DD09B2C2FB18500A44B74 /* CreditCompareView.swift in Sources */,
 				402F49CD2C2E0DEB00DBDDE4 /* CompareView.swift in Sources */,
 				402F49CF2C2E119B00DBDDE4 /* SharedCredits.swift in Sources */,
 				4018C66E2C2BC5E40005C2C4 /* SearchPersonView.swift in Sources */,
+				401DD0992C2FABE800A44B74 /* CreditProfileView.swift in Sources */,
 				4018C64E2C2BA24B0005C2C4 /* TMDBKeyProtocol.swift in Sources */,
 				401146952C2D0BC300B47803 /* ContentView.swift in Sources */,
 				401DD08E2C2E632900A44B74 /* MediaType.swift in Sources */,
 				4018C6552C2BA8030005C2C4 /* Credits.swift in Sources */,
 				401146982C2D0C7200B47803 /* PersonContainer.swift in Sources */,
+				401DD0962C2F320700A44B74 /* PersonProfileView.swift in Sources */,
+				401DD0932C2F2F2500A44B74 /* PersonCell.swift in Sources */,
 				4018C64C2C2B62B80005C2C4 /* TMDBAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -450,6 +490,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		401DD08F2C2F2ED500A44B74 /* XCRemoteSwiftPackageReference "CachedAsyncImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bullinnyc/CachedAsyncImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		401DD0902C2F2ED500A44B74 /* CachedAsyncImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 401DD08F2C2F2ED500A44B74 /* XCRemoteSwiftPackageReference "CachedAsyncImage" */;
+			productName = CachedAsyncImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4018C6252C2B5CC20005C2C4 /* Project object */;
 }
