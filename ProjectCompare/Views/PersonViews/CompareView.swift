@@ -18,11 +18,18 @@ struct CompareView: View {
     var body: some View {
         VStack {
             // MARK: Summarize the data for the user
-            HStack {
-                Text(viewModel.person1.name)
+            ViewThatFits(in: .horizontal) {
+                HStack {
+                    PersonProfileView(person: viewModel.person1)
+                    PersonProfileView(person: viewModel.person2)
+                }
                 
-                Text(viewModel.person2.name)
+                VStack {
+                    PersonProfileView(person: viewModel.person1)
+                    PersonProfileView(person: viewModel.person2)
+                }
             }
+            .padding()
             
             Text("\(viewModel.person1.name) and \(viewModel.person2.name) have been in \(viewModel.getPlural()) together")
             
@@ -31,17 +38,18 @@ struct CompareView: View {
             List {
                 Section("Movies") {
                     ForEach(viewModel.sharedCredits?.movieCredits ?? []) {
-                        Text($0.title)
+                        CreditCompareView(credit: $0)
                     }
                 }
                 
                 Section("TV") {
                     ForEach(viewModel.sharedCredits?.tvCredits ?? []) {
-                        Text($0.title)
+                        CreditCompareView(credit: $0)
                     }
                 }
             }
         }
+        
     }
 }
 
