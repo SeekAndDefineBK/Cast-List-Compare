@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PersonContainerView: View {
+struct PersonContainer: View {
     @Binding var person: Person?
     @State var showingSearchPerson = false
     
@@ -16,21 +16,10 @@ struct PersonContainerView: View {
         GroupBox {
             if let person = person {
                 // Show Person Preview
-                HStack {
-                    Image(systemName: "person.circle")
-                        .resizable()
-                        .frame(maxWidth: 36, maxHeight: 36)
-                    Text(person.name)
-                    
-                    Spacer()
-                    
-                    Button {
-                        clearSelectedPerson()
-                    } label: {
-                        Label("Clear", systemImage: "x.circle")
-                    }
-                }
-                
+                PersonCell(
+                    person: person,
+                    clearSelectedPerson: clearSelectedPerson
+                )
             } else {
                 // Else instruct the user to search for a person
                 Button {
@@ -45,9 +34,6 @@ struct PersonContainerView: View {
         }
         .frame(maxWidth: .infinity)
         .padding()
-        .onChange(of: person) { person in
-            print("Person changed to: \(person?.name ?? "Nothing")")
-        }
     }
     
     func showSearch() {
