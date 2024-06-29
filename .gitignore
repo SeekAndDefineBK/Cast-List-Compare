@@ -62,4 +62,6 @@ fastlane/screenshots/**/*.png
 fastlane/test_output
 
 #API Keys
-ProjectCompare/Service/TMDBAPIKey.swift
+ProjectCompare/Service/Authentication/TMDBAPIKey.swift
+
+.DS_Store
