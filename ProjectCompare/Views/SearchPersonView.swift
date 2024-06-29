@@ -35,15 +35,7 @@ struct SearchPersonView: View {
                     Text(getPlural())
                 } footer: {
                     if !searchResults.isEmpty {
-                        HStack {
-                            Image("TMDBLogo")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(maxWidth: 30)
-                            
-                            Text("Search results provided by The Movie Database")
-                                .padding(.horizontal)
-                        }
+                        TMDBAttributionView()
                         .padding(.vertical)
                         .padding(.bottom, 200) // in iOS 16 this adds extra space to the end to prevent the searchbox from overlapping the last item
                     }
