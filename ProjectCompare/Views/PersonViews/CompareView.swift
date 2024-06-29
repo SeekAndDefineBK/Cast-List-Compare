@@ -36,17 +36,22 @@ struct CompareView: View {
             
             // MARK: Give the user the rest of the details
             List {
-                Section("Movies") {
-                    ForEach(viewModel.sharedCredits?.movieCredits ?? []) {
-                        CreditCompareView(credit: $0)
+                if !(viewModel.sharedCredits?.movieCredits.isEmpty ?? true) {
+                    Section("Movies") {
+                        ForEach(viewModel.sharedCredits?.movieCredits ?? []) {
+                            CreditCompareView(credit: $0)
+                        }
                     }
                 }
                 
-                Section("TV") {
-                    ForEach(viewModel.sharedCredits?.tvCredits ?? []) {
-                        CreditCompareView(credit: $0)
+                if !(viewModel.sharedCredits?.tvCredits.isEmpty ?? true) {
+                    Section("TV") {
+                        ForEach(viewModel.sharedCredits?.tvCredits ?? []) {
+                            CreditCompareView(credit: $0)
+                        }
                     }
                 }
+                
             }
         }
         
