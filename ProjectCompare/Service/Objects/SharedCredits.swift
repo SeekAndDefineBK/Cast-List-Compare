@@ -72,6 +72,8 @@ struct SharedCreditsContainer {
                     mediaType: person1Details.mediaType,
                     poster_path: person1Details.poster_path,
                     releaseDate: date,
+                    person1: person1,
+                    person2: person2,
                     person1Role: person1Role,
                     person2Role: person2Role
                 )
@@ -112,6 +114,9 @@ struct SharedCredit: Identifiable {
     var mediaType: MediaType
     var poster_path: String?
     var releaseDate: Date?
+    
+    var person1: Person
+    var person2: Person
     
     var person1Role: String
     var person2Role: String
