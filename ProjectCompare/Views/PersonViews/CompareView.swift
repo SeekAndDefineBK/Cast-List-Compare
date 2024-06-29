@@ -16,24 +16,7 @@ struct CompareView: View {
     }
     
     var body: some View {
-        VStack {
-            // MARK: Summarize the data for the user
-            ViewThatFits(in: .horizontal) {
-                HStack {
-                    PersonProfileView(person: viewModel.person1)
-                    PersonProfileView(person: viewModel.person2)
-                }
-                
-                VStack {
-                    PersonProfileView(person: viewModel.person1)
-                    PersonProfileView(person: viewModel.person2)
-                }
-            }
-            .padding()
-            
-            Text("\(viewModel.person1.name) and \(viewModel.person2.name) have been in \(viewModel.getPlural()) together")
-            
-            
+        ZStack(alignment: .bottom) {
             // MARK: Give the user the rest of the details
             List {
                 if !(viewModel.sharedCredits?.movieCredits.isEmpty ?? true) {
@@ -52,9 +35,38 @@ struct CompareView: View {
                     }
                 }
                 
+                if !(viewModel.sharedCredits?.sharedCredits.isEmpty ?? true) {
+                    Section {
+                        //
+                    } footer: {
+                        TMDBAttributionView()
+                        .padding(.vertical)
+                        .padding(.bottom, 200) // in iOS 16 this adds extra space to the end to prevent the searchbox from overlapping the last item
+                    }
+                }
             }
+            
+            // MARK: Summarize the data for the user
+            GroupBox {
+                ViewThatFits(in: .horizontal) {
+                    HStack {
+                        PersonProfileView(person: viewModel.person1)
+                        PersonProfileView(person: viewModel.person2)
+                    }
+                    
+                    VStack {
+                        PersonProfileView(person: viewModel.person1)
+                        PersonProfileView(person: viewModel.person2)
+                    }
+                }
+                .padding()
+                
+                Text("\(viewModel.person1.name) and \(viewModel.person2.name) have been in \(viewModel.getPlural()) together")
+                    .padding()
+            }
+            .backgroundStyle(.ultraThinMaterial)
         }
-        
+        .ignoresSafeArea(edges: .bottom)
     }
 }
 
