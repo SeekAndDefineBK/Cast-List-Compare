@@ -37,4 +37,8 @@ extension TMDBAPI {
             return data
         }
     }
+    
+    func getImageURL(with path: String) -> URL? {
+        URL(string: "https://image.tmdb.org/t/p/w500\(path)")
+    }
 }
