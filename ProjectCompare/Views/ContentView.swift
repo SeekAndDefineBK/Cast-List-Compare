@@ -22,8 +22,8 @@ struct ContentView: View {
             VStack {
                 Text("Description")
                 
-                PersonContainerView(person: $viewModel.person1)
-                PersonContainerView(person: $viewModel.person2)
+                PersonContainer(person: $viewModel.person1)
+                PersonContainer(person: $viewModel.person2)
                      
                 Button {
                     viewModel.showingCompare = true
