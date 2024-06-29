@@ -28,6 +28,7 @@
 		401DD0992C2FABE800A44B74 /* CreditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DD0982C2FABE800A44B74 /* CreditProfileView.swift */; };
 		401DD09B2C2FB18500A44B74 /* CreditCompareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DD09A2C2FB18500A44B74 /* CreditCompareView.swift */; };
 		401DD09E2C2FB8EF00A44B74 /* TabTitleBar in Frameworks */ = {isa = PBXBuildFile; productRef = 401DD09D2C2FB8EF00A44B74 /* TabTitleBar */; };
+		401DD0A02C2FC08A00A44B74 /* TMDBAttributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DD09F2C2FC08A00A44B74 /* TMDBAttributionView.swift */; };
 		402F49CD2C2E0DEB00DBDDE4 /* CompareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402F49CC2C2E0DEB00DBDDE4 /* CompareView.swift */; };
 		402F49CF2C2E119B00DBDDE4 /* SharedCredits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402F49CE2C2E119B00DBDDE4 /* SharedCredits.swift */; };
 		402F49D22C2E133800DBDDE4 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402F49D12C2E133800DBDDE4 /* Array.swift */; };
@@ -54,6 +55,7 @@
 		401DD0952C2F320700A44B74 /* PersonProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonProfileView.swift; sourceTree = "<group>"; };
 		401DD0982C2FABE800A44B74 /* CreditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditProfileView.swift; sourceTree = "<group>"; };
 		401DD09A2C2FB18500A44B74 /* CreditCompareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCompareView.swift; sourceTree = "<group>"; };
+		401DD09F2C2FC08A00A44B74 /* TMDBAttributionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBAttributionView.swift; sourceTree = "<group>"; };
 		402F49CC2C2E0DEB00DBDDE4 /* CompareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareView.swift; sourceTree = "<group>"; };
 		402F49CE2C2E119B00DBDDE4 /* SharedCredits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedCredits.swift; sourceTree = "<group>"; };
 		402F49D12C2E133800DBDDE4 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				4018C6302C2B5CC20005C2C4 /* ProjectCompareApp.swift */,
 				401146942C2D0BC300B47803 /* ContentView.swift */,
 				4018C66D2C2BC5E40005C2C4 /* SearchPersonView.swift */,
+				401DD09F2C2FC08A00A44B74 /* TMDBAttributionView.swift */,
 				401DD0972C2FABD300A44B74 /* CreditViews */,
 				401146962C2D0C5D00B47803 /* PersonViews */,
 			);
@@ -269,6 +272,7 @@
 			files = (
 				4018C66C2C2BBC360005C2C4 /* PersonSearchResult.swift in Sources */,
 				4018C6512C2BA7F10005C2C4 /* Person.swift in Sources */,
+				401DD0A02C2FC08A00A44B74 /* TMDBAttributionView.swift in Sources */,
 				401146912C2CFD8A00B47803 /* TMDBAPI-Shared.swift in Sources */,
 				4018C6672C2BAB960005C2C4 /* TMDBAPI-Person.swift in Sources */,
 				401146812C2CEBCB00B47803 /* TMDBAPIKey.swift in Sources */,
