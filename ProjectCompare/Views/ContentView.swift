@@ -46,6 +46,8 @@ struct ContentView: View {
                 }
                 .tag(1)
             }
+            .tabViewStyle(.page(indexDisplayMode: .never)) // allows user to change tab with swipe
+            
             TabTitleBar(
                 currentTabSelection: $selectedTab,
                 tabItems: [
@@ -54,8 +56,6 @@ struct ContentView: View {
                 ]
             )
         }
-        
-        .tabViewStyle(.page) // allows user to change tab with swipe
         .sheet(isPresented: $viewModel.searchForPerson1) {
             SearchPersonView(selectedPerson: $viewModel.person1)
         }
