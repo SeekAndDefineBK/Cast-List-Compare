@@ -8,12 +8,6 @@
 import Foundation
 
 extension TMDBAPI {
-    // MARK: Errors
-    // Custom errors to throw related to TMDB
-    enum TMDBAPIError: Error {
-        case badURL(String)
-    }
-    
     /// Shared method to perform api request that checks cache first.
     /// - Parameter urlString: String value of the url you intend call
     /// - Returns: Data which will be then need to be decoded
@@ -21,7 +15,7 @@ extension TMDBAPI {
         // if the url is bad, fail silently
         guard let url = URL(string: urlString) else {
             print("Bad URL: \(urlString)")
-            throw TMDBAPIError.badURL(urlString)
+            throw TMDBAPIError.badURL("Bad url: \(urlString)")
         }
         
         // build the url request to check against cache
