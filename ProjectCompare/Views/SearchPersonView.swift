@@ -9,11 +9,14 @@ import SwiftUI
 
 struct SearchPersonView: View {
     @Environment(\.dismiss) var dismiss
+    @Environment(\.isFocused) var isFocused
     let tmdb = TMDBAPI.shared
     
     @State private var query: String = ""
     @State private var searchResults: [Person] = []
     @Binding var selectedPerson: Person?
+    
+    @FocusState private var keyboardFocused: Bool
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -40,24 +43,26 @@ struct SearchPersonView: View {
                         .padding(.bottom, 200) // in iOS 16 this adds extra space to the end to prevent the searchbox from overlapping the last item
                     }
                 }
-                
             }
             
             GroupBox {
                 Button("Search") {
                     performSearch()
+                    keyboardFocused = false
                 }
+                .accessibilityIdentifier("searchForPerson")
                 .buttonStyle(.borderedProminent)
                 .padding(.vertical, 5) // this evenly places the search button from the search box
                 
                 TextField("Enter Person Name", text: $query)
                     .textFieldStyle(.roundedBorder)
                     .padding(.bottom, 40)
+                    .focused($keyboardFocused)
+                    
             }
             .backgroundStyle(.ultraThinMaterial)
-            
         }
-        .ignoresSafeArea(edges: .bottom)
+        .ignoresSafeArea(edges: keyboardFocused ? [] : [.bottom])
         
     }
     
