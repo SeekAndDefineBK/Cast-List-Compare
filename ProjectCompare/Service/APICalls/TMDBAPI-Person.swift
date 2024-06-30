@@ -9,7 +9,6 @@ import Foundation
 
 extension TMDBAPI {
     // MARK: Person Search and Decoding
-    
     /// Search TMDB API for a person with a user generated query
     /// - Parameters:
     ///   - query: String. The text the user types in.
@@ -61,7 +60,6 @@ extension TMDBAPI {
         let creditsJSON = await fetchCredits(for: person)
         
         // merge cast and crew list
-        
         return (creditsJSON?.cast ?? []) + (creditsJSON?.crew ?? [])
     }
     
