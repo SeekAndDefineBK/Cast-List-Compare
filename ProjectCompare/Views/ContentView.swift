@@ -10,66 +10,59 @@ import TabTitleBar
 
 struct ContentView: View {
     @StateObject private var viewModel = ContentViewModel()
+    @Environment(\.colorScheme) var colorScheme
     
     // accessing through EnvironmentObject to reduce number of instances of TMDBAPI object allocated
     let tmdb = TMDBAPI.shared
     
     // store selectedTab in user defaults to allow user to start where they left off
     @AppStorage("selectedTab") var selectedTab: Int = 0
-        
+    
+    // Allows the user to move the tab title to the top or bottom of the screen
+    @AppStorage("titleOnTop") var titleOnTop: Bool = false
+
+    @ViewBuilder
+    func tabTitleBar() -> some View {
+        TabTitleBar(
+            currentTabSelection: $selectedTab,
+            tabItems: [
+                TabItem(view: Text("Search"), index: 0, symbol: "magnifyingglass"),
+                TabItem(view: Text("App Info"), index: 1, symbol: "ellipsis.circle")
+            ]
+        )
+    }
+    
     var body: some View {
         VStack {
+            if titleOnTop {
+                tabTitleBar()
+            }
+            
             TabView(selection: $selectedTab) {
                 // MARK: Main Tab
-                VStack {
-                    Text("Description")
-                    
-                    PersonContainer(person: $viewModel.person1)
-                    PersonContainer(person: $viewModel.person2)
-                         
-                    Button {
-                        viewModel.showingCompare = true
-                    } label: {
-                        Text("Compare")
-                    }
-                    .buttonStyle(.borderedProminent) // signifies main action user should take
-                    .disabled(viewModel.person1 == nil || viewModel.person2 == nil)
-                    
-                }
+                AppSearchView()
                 .tag(0)
 
                 // MARK: Secondary tab for Settings, History, Attribution
-                VStack {
-                    Text("Settings")
-                    Text("History")
-                    Text("Attribution")
-                }
+                AppInfoView()
                 .tag(1)
             }
-            .tabViewStyle(.page(indexDisplayMode: .never)) // allows user to change tab with swipe
+            .tabViewStyle(.page) // allows user to change tab with swipe
+            .indexViewStyle(.page(backgroundDisplayMode: .interactive))
             
-            TabTitleBar(
-                currentTabSelection: $selectedTab,
-                tabItems: [
-                    TabItem(view: Text("Search"), index: 0, symbol: "magnifyingglass"),
-                    TabItem(view: Text("App Info"), index: 1, symbol: "ellipsis.circle")
-                ]
-            )
-        }
-        .sheet(isPresented: $viewModel.searchForPerson1) {
-            SearchPersonView(selectedPerson: $viewModel.person1)
-        }
-        .sheet(isPresented: $viewModel.searchForPerson2) {
-            SearchPersonView(selectedPerson: $viewModel.person2)
-        }
-        .sheet(isPresented: $viewModel.showingCompare) {
-            if let person1 = viewModel.person1, let person2 = viewModel.person2 {
-                CompareView(person1: person1, person2: person2)
-            } else {
-                // Fallback view in case person1 and or person2 is nil
-                Text("Error loading comparison view")
+            if !titleOnTop {
+                tabTitleBar()
             }
-            
+        }
+        .background {
+            LinearGradient(
+                colors: [
+                    viewModel.createGradientColor(for: colorScheme, color: .cyan), 
+                    viewModel.createGradientColor(for: colorScheme, color: .green)
+                ],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            ).ignoresSafeArea()
         }
     }
 }
@@ -77,16 +70,18 @@ struct ContentView: View {
 extension ContentView {
     class ContentViewModel: ObservableObject {
         // MARK: ViewModel Properties
-        @Published var person1: Person?
-        @Published var person2: Person?
-        @Published var searchForPerson1 = false
-        @Published var searchForPerson2 = false
         @Published var showingCompare = false
         
         // MARK: ViewModel Initializers
         init() {}
                 
         // MARK: ViewModel Methods
-        
+        func createGradientColor(for colorScheme: ColorScheme, color: Color) -> Color {
+            // determine the opacity given the color scheme
+            let opacity = colorScheme == .light ? 0.2 : 0.5
+            
+            // return desired color with opacity applied
+            return color.opacity(opacity)
+        }
     }
 }
