@@ -11,6 +11,13 @@ import TabTitleBar
 struct ContentView: View {
     @StateObject private var viewModel = ContentViewModel()
     @Environment(\.colorScheme) var colorScheme
+
+    init() {
+        // This hides the tutorial for UI Testing
+        #if DEBUG
+        showTutorial = false
+        #endif
+    }
     
     // accessing through EnvironmentObject to reduce number of instances of TMDBAPI object allocated
     let tmdb = TMDBAPI.shared
@@ -20,6 +27,9 @@ struct ContentView: View {
     
     // Allows the user to move the tab title to the top or bottom of the screen
     @AppStorage("titleOnTop") var titleOnTop: Bool = false
+    
+    // Show Tutorial to new users
+    @AppStorage("showTutorial") var showTutorial: Bool = true
 
     @ViewBuilder
     func tabTitleBar() -> some View {
@@ -63,6 +73,12 @@ struct ContentView: View {
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             ).ignoresSafeArea()
+        }
+        .sheet(isPresented: $showTutorial) {
+            TutorialView()
+                .onDisappear {
+                    showTutorial = false // set showTutorial to false so that it only shows once
+                }
         }
     }
 }
