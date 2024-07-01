@@ -48,9 +48,10 @@ struct PersonProfileView: View {
                     errorImage()
                 }
             }
-            .frame(maxWidth: 50, maxHeight: 50)
+            .frame(maxWidth: 72, maxHeight: 72)
             
             Text(viewModel.person.name)
+                .fontWeight(.medium)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
@@ -70,7 +71,7 @@ extension PersonProfileView {
         // MARK: ViewModel Methods
         func getImageURL() -> URL? {
             if let profilePath = person.profile_path {
-                return tmdb.getImageURL(with: person.profile_path ?? "")
+                return tmdb.getImageURL(with: profilePath)
             } else {
                 return nil
             }
