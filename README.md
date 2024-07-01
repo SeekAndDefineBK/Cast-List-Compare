@@ -1,5 +1,5 @@
 # CastList - Find the movies/tv in common between your favorite actors/actresses
-The concept of this app came from a question I couldn’t easily answer. It seemed like every movie Seth Rogen is in, James Franco is also in it. This app aims to answer that question and allow you to find out how many movies Chris Farley and David Spade are in, Robert Downy Jr and Chris Evans are in, etc. 
+The concept of this app came from a question I couldn’t easily answer. It seemed like every movie Seth Rogen is in, James Franco is also in it. This app aims to answer that question and allow you to find out how many movies Chris Farley and David Spade are in together, Robert Downy Jr and Chris Evans are in together, etc. 
 
 # API Initialization
 - Most importantly, if you choose to build this in your environment, you will need an API Key. 
@@ -14,7 +14,7 @@ The concept of this app came from a question I couldn’t easily answer. It seem
 - This requires iOS 16 and up. 
 - This app has two package dependencies
     - [CachedAsyncImage](https://github.com/bullinnyc/CachedAsyncImage)
-        - In summary, this is an extremely simple SwiftUI view that handles downloading images from a server and caching them for later.
+        - In summary, this is a SwiftUI view that handles downloading images from a server and caching them for later.
         - It is a well supported repo, as of writing it has had updates in the last few weeks. 
         
     - [TabTitleBar](https://github.com/SeekAndDefineBK/TabTitleBar)
