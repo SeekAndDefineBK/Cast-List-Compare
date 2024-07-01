@@ -1,5 +1,5 @@
 # CastList - Find the movies/tv in common between your favorite actors/actresses
-The concept of this app came from a question I couldn’t easily answer. It seemed like every movie Seth Rogen is in, James Franco is also in it. This app aims to answer that question and allow you to find out how many movies Chris Farley and David Spade are in, Robert Downy Jr and Chris Evans are in, etc. 
+The concept of this app came from a question I couldn’t easily answer. It seemed like every movie Seth Rogen is in, James Franco is also in it. This app aims to answer that question and allow you to find out how many movies Chris Farley and David Spade are in together, Robert Downy Jr and Chris Evans are in together, etc. 
 
 # API Initialization
 - Most importantly, if you choose to build this in your environment, you will need an API Key. 
