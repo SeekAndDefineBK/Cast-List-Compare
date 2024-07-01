@@ -17,7 +17,7 @@ struct SearchPersonView: View {
     @Binding var selectedPerson: Person?
     
     @FocusState private var keyboardFocused: Bool
-    
+
     var body: some View {
         ZStack(alignment: .bottom) {
             List {
@@ -62,8 +62,7 @@ struct SearchPersonView: View {
             }
             .backgroundStyle(.ultraThinMaterial)
         }
-        .ignoresSafeArea(edges: keyboardFocused ? [] : [.bottom])
-        
+        .ignoresSafeArea(edges: keyboardFocused ? [] : [.bottom]) // MARK: without this the keyboard will overlap the text box
     }
     
     func performSearch() {
