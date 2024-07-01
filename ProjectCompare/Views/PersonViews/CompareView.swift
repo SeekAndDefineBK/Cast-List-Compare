@@ -23,6 +23,7 @@ struct CompareView: View {
                     Section("Movies") {
                         ForEach(viewModel.sharedCredits?.movieCredits ?? []) {
                             CreditCompareView(credit: $0)
+                                .padding(.vertical)
                         }
                     }
                 }
@@ -31,6 +32,7 @@ struct CompareView: View {
                     Section("TV") {
                         ForEach(viewModel.sharedCredits?.tvCredits ?? []) {
                             CreditCompareView(credit: $0)
+                                .padding(.vertical)
                         }
                     }
                 }
