@@ -49,13 +49,8 @@
 		401DD0C32C30FBD500A44B74 /* SharedCredits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402F49CE2C2E119B00DBDDE4 /* SharedCredits.swift */; };
 		401DD0C52C31039600A44B74 /* SharedCredit-Conversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DD0C42C31039600A44B74 /* SharedCredit-Conversions.swift */; };
 		401DD0CA2C31055300A44B74 /* PersonContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401146972C2D0C7200B47803 /* PersonContainer.swift */; };
-		401DD0CB2C31055300A44B74 /* CompareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402F49CC2C2E0DEB00DBDDE4 /* CompareView.swift */; };
-		401DD0CC2C31055300A44B74 /* PersonProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DD0952C2F320700A44B74 /* PersonProfileView.swift */; };
-		401DD0CD2C31055300A44B74 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DD0922C2F2F2500A44B74 /* PersonCell.swift */; };
-		401DD0CE2C31055500A44B74 /* CreditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DD0982C2FABE800A44B74 /* CreditProfileView.swift */; };
 		401DD0CF2C31055500A44B74 /* CreditCompareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DD09A2C2FB18500A44B74 /* CreditCompareView.swift */; };
 		401DD0D02C31055800A44B74 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401146942C2D0BC300B47803 /* ContentView.swift */; };
-		401DD0D12C31055800A44B74 /* SearchPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4018C66D2C2BC5E40005C2C4 /* SearchPersonView.swift */; };
 		401DD0D22C31055800A44B74 /* ProjectCompareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4018C6302C2B5CC20005C2C4 /* ProjectCompareApp.swift */; };
 		401DD0D32C31055800A44B74 /* TMDBAttributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DD09F2C2FC08A00A44B74 /* TMDBAttributionView.swift */; };
 		401DD0DB2C3107F800A44B74 /* ProjectCompareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DD0DA2C3107F800A44B74 /* ProjectCompareUITests.swift */; };
@@ -63,6 +58,23 @@
 		402F49CD2C2E0DEB00DBDDE4 /* CompareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402F49CC2C2E0DEB00DBDDE4 /* CompareView.swift */; };
 		402F49CF2C2E119B00DBDDE4 /* SharedCredits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402F49CE2C2E119B00DBDDE4 /* SharedCredits.swift */; };
 		402F49D22C2E133800DBDDE4 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402F49D12C2E133800DBDDE4 /* Array.swift */; };
+		4053A3A12C31E1ED006D9F24 /* AppInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4053A3A02C31E1ED006D9F24 /* AppInfoView.swift */; };
+		4053A3A52C31E23D006D9F24 /* AppSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4053A3A42C31E23D006D9F24 /* AppSearchView.swift */; };
+		4053A3A82C31E9E7006D9F24 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4053A3A72C31E9E7006D9F24 /* TutorialView.swift */; };
+		4053A3AB2C31EA5B006D9F24 /* TutorialSplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4053A3AA2C31EA5B006D9F24 /* TutorialSplashView.swift */; };
+		4053A3AD2C31EA87006D9F24 /* TutorialSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4053A3AC2C31EA87006D9F24 /* TutorialSearchView.swift */; };
+		4053A3AF2C31EA9C006D9F24 /* TutorialCompareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4053A3AE2C31EA9C006D9F24 /* TutorialCompareView.swift */; };
+		4053A3CD2C320496006D9F24 /* AppSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4053A3A42C31E23D006D9F24 /* AppSearchView.swift */; };
+		4053A3CF2C3204A0006D9F24 /* AppInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4053A3A02C31E1ED006D9F24 /* AppInfoView.swift */; };
+		4053A3DB2C32060B006D9F24 /* CompareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402F49CC2C2E0DEB00DBDDE4 /* CompareView.swift */; };
+		4053A3DC2C320620006D9F24 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4053A3A72C31E9E7006D9F24 /* TutorialView.swift */; };
+		4053A3DD2C320623006D9F24 /* TutorialSplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4053A3AA2C31EA5B006D9F24 /* TutorialSplashView.swift */; };
+		4053A3DE2C320626006D9F24 /* TutorialSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4053A3AC2C31EA87006D9F24 /* TutorialSearchView.swift */; };
+		4053A3DF2C320629006D9F24 /* TutorialCompareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4053A3AE2C31EA9C006D9F24 /* TutorialCompareView.swift */; };
+		4053A3E02C32063A006D9F24 /* CreditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DD0982C2FABE800A44B74 /* CreditProfileView.swift */; };
+		4053A3E12C320653006D9F24 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DD0922C2F2F2500A44B74 /* PersonCell.swift */; };
+		4053A3E22C320653006D9F24 /* PersonProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DD0952C2F320700A44B74 /* PersonProfileView.swift */; };
+		4053A3E32C320653006D9F24 /* SearchPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4018C66D2C2BC5E40005C2C4 /* SearchPersonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +128,12 @@
 		402F49CC2C2E0DEB00DBDDE4 /* CompareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareView.swift; sourceTree = "<group>"; };
 		402F49CE2C2E119B00DBDDE4 /* SharedCredits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedCredits.swift; sourceTree = "<group>"; };
 		402F49D12C2E133800DBDDE4 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		4053A3A02C31E1ED006D9F24 /* AppInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoView.swift; sourceTree = "<group>"; };
+		4053A3A42C31E23D006D9F24 /* AppSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSearchView.swift; sourceTree = "<group>"; };
+		4053A3A72C31E9E7006D9F24 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		4053A3AA2C31EA5B006D9F24 /* TutorialSplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialSplashView.swift; sourceTree = "<group>"; };
+		4053A3AC2C31EA87006D9F24 /* TutorialSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialSearchView.swift; sourceTree = "<group>"; };
+		4053A3AE2C31EA9C006D9F24 /* TutorialCompareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCompareView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +166,7 @@
 		401146962C2D0C5D00B47803 /* PersonViews */ = {
 			isa = PBXGroup;
 			children = (
+				4018C66D2C2BC5E40005C2C4 /* SearchPersonView.swift */,
 				401DD0922C2F2F2500A44B74 /* PersonCell.swift */,
 				401DD0952C2F320700A44B74 /* PersonProfileView.swift */,
 				401146972C2D0C7200B47803 /* PersonContainer.swift */,
@@ -212,8 +231,9 @@
 			children = (
 				4018C6302C2B5CC20005C2C4 /* ProjectCompareApp.swift */,
 				401146942C2D0BC300B47803 /* ContentView.swift */,
-				4018C66D2C2BC5E40005C2C4 /* SearchPersonView.swift */,
 				401DD09F2C2FC08A00A44B74 /* TMDBAttributionView.swift */,
+				4053A3A92C31EA4A006D9F24 /* Tutorial */,
+				4053A3A62C31E3BA006D9F24 /* Tab Views */,
 				401DD0972C2FABD300A44B74 /* CreditViews */,
 				401146962C2D0C5D00B47803 /* PersonViews */,
 			);
@@ -286,6 +306,26 @@
 				402F49D12C2E133800DBDDE4 /* Array.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		4053A3A62C31E3BA006D9F24 /* Tab Views */ = {
+			isa = PBXGroup;
+			children = (
+				4053A3A02C31E1ED006D9F24 /* AppInfoView.swift */,
+				4053A3A42C31E23D006D9F24 /* AppSearchView.swift */,
+			);
+			path = "Tab Views";
+			sourceTree = "<group>";
+		};
+		4053A3A92C31EA4A006D9F24 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				4053A3A72C31E9E7006D9F24 /* TutorialView.swift */,
+				4053A3AA2C31EA5B006D9F24 /* TutorialSplashView.swift */,
+				4053A3AC2C31EA87006D9F24 /* TutorialSearchView.swift */,
+				4053A3AE2C31EA9C006D9F24 /* TutorialCompareView.swift */,
+			);
+			path = Tutorial;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -434,11 +474,16 @@
 				4018C6672C2BAB960005C2C4 /* TMDBAPI-Person.swift in Sources */,
 				401146812C2CEBCB00B47803 /* TMDBAPIKey.swift in Sources */,
 				4018C6312C2B5CC20005C2C4 /* ProjectCompareApp.swift in Sources */,
+				4053A3A52C31E23D006D9F24 /* AppSearchView.swift in Sources */,
 				402F49D22C2E133800DBDDE4 /* Array.swift in Sources */,
 				401DD0B52C30F88400A44B74 /* TMDBAPIError.swift in Sources */,
+				4053A3AB2C31EA5B006D9F24 /* TutorialSplashView.swift in Sources */,
 				401DD09B2C2FB18500A44B74 /* CreditCompareView.swift in Sources */,
+				4053A3AD2C31EA87006D9F24 /* TutorialSearchView.swift in Sources */,
 				402F49CD2C2E0DEB00DBDDE4 /* CompareView.swift in Sources */,
 				402F49CF2C2E119B00DBDDE4 /* SharedCredits.swift in Sources */,
+				4053A3A12C31E1ED006D9F24 /* AppInfoView.swift in Sources */,
+				4053A3A82C31E9E7006D9F24 /* TutorialView.swift in Sources */,
 				4018C66E2C2BC5E40005C2C4 /* SearchPersonView.swift in Sources */,
 				401DD0992C2FABE800A44B74 /* CreditProfileView.swift in Sources */,
 				4018C64E2C2BA24B0005C2C4 /* TMDBKeyProtocol.swift in Sources */,
@@ -448,6 +493,7 @@
 				401146982C2D0C7200B47803 /* PersonContainer.swift in Sources */,
 				401DD0962C2F320700A44B74 /* PersonProfileView.swift in Sources */,
 				401DD0932C2F2F2500A44B74 /* PersonCell.swift in Sources */,
+				4053A3AF2C31EA9C006D9F24 /* TutorialCompareView.swift in Sources */,
 				4018C64C2C2B62B80005C2C4 /* TMDBAPI.swift in Sources */,
 				401DD0B32C30F84000A44B74 /* APIKeyValidation.swift in Sources */,
 			);
@@ -461,29 +507,35 @@
 				401DD0B12C30F42800A44B74 /* TMDB-AssetTests.swift in Sources */,
 				401DD0BD2C30FB5900A44B74 /* Credits.swift in Sources */,
 				401DD0C32C30FBD500A44B74 /* SharedCredits.swift in Sources */,
+				4053A3CD2C320496006D9F24 /* AppSearchView.swift in Sources */,
+				4053A3E02C32063A006D9F24 /* CreditProfileView.swift in Sources */,
 				401DD0BE2C30FB5900A44B74 /* Person.swift in Sources */,
 				401DD0BF2C30FB5900A44B74 /* PersonSearchResult.swift in Sources */,
 				401DD0C02C30FB5900A44B74 /* MediaType.swift in Sources */,
 				401DD0C22C30FBD400A44B74 /* Array.swift in Sources */,
 				401DD0B92C30FAA100A44B74 /* TMDBAPI-Person.swift in Sources */,
+				4053A3DD2C320623006D9F24 /* TutorialSplashView.swift in Sources */,
+				4053A3DB2C32060B006D9F24 /* CompareView.swift in Sources */,
+				4053A3DE2C320626006D9F24 /* TutorialSearchView.swift in Sources */,
 				401DD0CA2C31055300A44B74 /* PersonContainer.swift in Sources */,
-				401DD0CE2C31055500A44B74 /* CreditProfileView.swift in Sources */,
 				401DD0CF2C31055500A44B74 /* CreditCompareView.swift in Sources */,
-				401DD0CB2C31055300A44B74 /* CompareView.swift in Sources */,
-				401DD0CC2C31055300A44B74 /* PersonProfileView.swift in Sources */,
-				401DD0CD2C31055300A44B74 /* PersonCell.swift in Sources */,
 				401DD0D02C31055800A44B74 /* ContentView.swift in Sources */,
-				401DD0D12C31055800A44B74 /* SearchPersonView.swift in Sources */,
+				4053A3DC2C320620006D9F24 /* TutorialView.swift in Sources */,
 				401DD0D22C31055800A44B74 /* ProjectCompareApp.swift in Sources */,
 				401DD0D32C31055800A44B74 /* TMDBAttributionView.swift in Sources */,
 				401DD0BC2C30FAA600A44B74 /* TMDBAPI.swift in Sources */,
 				401DD0B82C30FA9F00A44B74 /* TMDBAPI-Shared.swift in Sources */,
 				401DD0C52C31039600A44B74 /* SharedCredit-Conversions.swift in Sources */,
 				401DD0AF2C30F32F00A44B74 /* TMDB-FetchTests.swift in Sources */,
+				4053A3E12C320653006D9F24 /* PersonCell.swift in Sources */,
+				4053A3E22C320653006D9F24 /* PersonProfileView.swift in Sources */,
+				4053A3E32C320653006D9F24 /* SearchPersonView.swift in Sources */,
 				401DD0B72C30FA9B00A44B74 /* TMDBAPIError.swift in Sources */,
 				401DD0B62C30FA5A00A44B74 /* APIKeyValidation.swift in Sources */,
 				401DD0BA2C30FAA400A44B74 /* TMDBAPIKey.swift in Sources */,
+				4053A3DF2C320629006D9F24 /* TutorialCompareView.swift in Sources */,
 				401DD0BB2C30FAA400A44B74 /* TMDBKeyProtocol.swift in Sources */,
+				4053A3CF2C3204A0006D9F24 /* AppInfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
