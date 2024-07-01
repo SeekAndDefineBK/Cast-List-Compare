@@ -12,6 +12,7 @@ struct AppInfoView: View {
     @AppStorage("titleOnTop") var titleOnTop: Bool = false
     
     // These are setup as User Defaults so it remembers if the user chose to collapse the group after relaunch
+    @AppStorage("showingTutorialGroup") var showingTutorialGroup = true
     @AppStorage("showingSettings") var showingSettings = true
     @AppStorage("showingAttribution") var showingAttribution = true
     
@@ -24,14 +25,6 @@ struct AppInfoView: View {
             
             List {
                 Group {
-                    Button {
-                        viewModel.showingTutorial = true
-                    } label: {
-                        Label("What is this app?", systemImage: "questionmark.app")
-                            .fontWeight(.medium)
-                    }
-                    .padding(.vertical)
-                    
                     DisclosureGroup(isExpanded: $showingSettings) {
                         Toggle(
                             titleOnTop ? "Tab Title on Top" : "Tab Title on Bottom",
@@ -61,6 +54,23 @@ struct AppInfoView: View {
                         }
                     } label: {
                         Label("Where does this data come from?", systemImage: "arrow.up.arrow.down.circle")
+                            .fontWeight(.medium)
+                    }
+                    
+                    DisclosureGroup(isExpanded: $showingTutorialGroup) {
+                        Button {
+                            viewModel.showingTutorial = true
+                        } label: {
+                            Text("Open Tutorial")
+                                .fontWeight(.medium)
+                        }
+                        .padding(.vertical)
+                        .buttonStyle(.borderedProminent)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .padding(.bottom, 50) // in iOS 16 this adds extra space to the end to prevent the searchbox from overlapping the last item
+                        .listRowSeparator(.hidden) // hiding unnecessary separator at the bottom of the screen
+                    } label: {
+                        Label("What is this app?", systemImage: "questionmark.app")
                             .fontWeight(.medium)
                     }
                     
