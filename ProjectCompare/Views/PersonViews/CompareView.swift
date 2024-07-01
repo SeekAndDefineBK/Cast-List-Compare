@@ -18,32 +18,41 @@ struct CompareView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             // MARK: Give the user the rest of the details
-            List {
-                if !(viewModel.sharedCredits?.movieCredits.isEmpty ?? true) {
-                    Section("Movies") {
-                        ForEach(viewModel.sharedCredits?.movieCredits ?? []) {
-                            CreditCompareView(credit: $0)
-                                .padding(.vertical)
+            // if there are no shared productions, be explicit
+            if viewModel.sharedCredits?.sharedCredits.isEmpty ?? true {
+                Text("0 Shared Productions.")
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top) //maxWidth and height are required so summary box remains on bottom of view
+                    .padding()
+                    .bold()
+            } else {
+                // MARK: Shared Productions views
+                List {
+                    if !(viewModel.sharedCredits?.movieCredits.isEmpty ?? true) {
+                        Section("Movies") {
+                            ForEach(viewModel.sharedCredits?.movieCredits ?? []) {
+                                CreditCompareView(credit: $0)
+                                    .padding(.vertical)
+                            }
                         }
                     }
-                }
-                
-                if !(viewModel.sharedCredits?.tvCredits.isEmpty ?? true) {
-                    Section("TV") {
-                        ForEach(viewModel.sharedCredits?.tvCredits ?? []) {
-                            CreditCompareView(credit: $0)
-                                .padding(.vertical)
+                    
+                    if !(viewModel.sharedCredits?.tvCredits.isEmpty ?? true) {
+                        Section("TV") {
+                            ForEach(viewModel.sharedCredits?.tvCredits ?? []) {
+                                CreditCompareView(credit: $0)
+                                    .padding(.vertical)
+                            }
                         }
                     }
-                }
-                
-                if !(viewModel.sharedCredits?.sharedCredits.isEmpty ?? true) {
-                    Section {
-                        //
-                    } footer: {
-                        TMDBAttributionView()
-                        .padding(.vertical)
-                        .padding(.bottom, 200) // in iOS 16 this adds extra space to the end to prevent the searchbox from overlapping the last item
+                    
+                    if !(viewModel.sharedCredits?.sharedCredits.isEmpty ?? true) {
+                        Section {
+                            //
+                        } footer: {
+                            TMDBAttributionView()
+                            .padding(.vertical)
+                            .padding(.bottom, 200) // in iOS 16 this adds extra space to the end to prevent the searchbox from overlapping the last item
+                        }
                     }
                 }
             }
@@ -69,6 +78,7 @@ struct CompareView: View {
             .backgroundStyle(.ultraThinMaterial)
         }
         .ignoresSafeArea(edges: .bottom)
+        .presentationDetents(viewModel.sharedCredits?.sharedCredits.isEmpty ?? true ? [.height(250)] : [])
     }
 }
 
