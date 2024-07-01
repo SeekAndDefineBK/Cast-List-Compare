@@ -14,7 +14,7 @@ The concept of this app came from a question I couldn’t easily answer. It seem
 - This requires iOS 16 and up. 
 - This app has two package dependencies
     - [CachedAsyncImage](https://github.com/bullinnyc/CachedAsyncImage)
-        - In summary, this is an extremely simple SwiftUI view that handles downloading images from a server and caching them for later.
+        - In summary, this is a SwiftUI view that handles downloading images from a server and caching them for later.
         - It is a well supported repo, as of writing it has had updates in the last few weeks. 
         
     - [TabTitleBar](https://github.com/SeekAndDefineBK/TabTitleBar)
