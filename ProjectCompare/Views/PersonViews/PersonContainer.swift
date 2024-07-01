@@ -27,8 +27,12 @@ struct PersonContainer: View {
                 } label: {
                     Text("Search for a Person")
                 }
+                .foregroundStyle(.white)
             }
         }
+        .backgroundStyle(
+            person == nil ? Color.blue : Color(uiColor: .quaternaryLabel).opacity(0.5)
+        )
         .sheet(isPresented: $showingSearchPerson) {
             SearchPersonView(selectedPerson: $person)
         }
