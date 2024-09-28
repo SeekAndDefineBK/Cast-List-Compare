@@ -14,10 +14,12 @@ struct TutorialSearchView: View {
     var continueAction: () -> Void
 
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack {
             Text("Fill out the Search prompt")
                 .bold()
                 .font(.title)
+                .frame(maxWidth: .infinity, alignment: .leading)
+
             
             Spacer()
             
