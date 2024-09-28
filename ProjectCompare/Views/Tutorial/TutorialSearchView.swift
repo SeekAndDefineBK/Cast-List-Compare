@@ -14,11 +14,12 @@ struct TutorialSearchView: View {
     var continueAction: () -> Void
 
     var body: some View {
-        VStack {
-            Spacer()
+        VStack(alignment: .leading) {
+            Text("Fill out the Search prompt")
+                .bold()
+                .font(.title)
             
-            Text("You must select the people to search for")
-            .padding(.vertical)
+            Spacer()
             
             Text("Who is the first person?")
                 .bold()
@@ -36,7 +37,11 @@ struct TutorialSearchView: View {
                 Text("Continue")
             }
             .disabled(person1 == nil || person2 == nil)
+            .buttonStyle(.borderedProminent)
+            .frame(maxWidth: .infinity, alignment: .center)
         }
+        .frame(maxHeight: .infinity, alignment: .center)
+        .padding()
     }
 }
 
