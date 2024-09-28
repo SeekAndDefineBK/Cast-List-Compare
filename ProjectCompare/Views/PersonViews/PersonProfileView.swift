@@ -49,6 +49,7 @@ struct PersonProfileView: View {
                 }
             }
             .frame(maxWidth: 72, maxHeight: 72)
+            .accessibilityHidden(true) // hiding image from accessibility assuming labeling it "Photo of __" isn't useful
             
             Text(viewModel.person.name)
                 .fontWeight(.medium)

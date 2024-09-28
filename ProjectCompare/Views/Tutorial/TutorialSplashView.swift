@@ -22,6 +22,7 @@ struct TutorialSplashView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 20))
                 .shadow(radius: 2, x: 2, y: 2)
                 .padding()
+                .accessibilityHidden(true)
             
             Text("Hello! This is CastList")
                 .font(.largeTitle)

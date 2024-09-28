@@ -15,6 +15,7 @@ struct TMDBAttributionView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(maxWidth: 30)
+                .accessibilityHidden(true)
             
             Text("Search results provided by The Movie Database")
                 .padding(.horizontal)

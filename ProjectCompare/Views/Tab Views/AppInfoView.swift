@@ -43,6 +43,8 @@ struct AppInfoView: View {
                                 .scaledToFit()
                                 .frame(width: 100)
                                 .frame(maxWidth: .infinity, alignment: .leading)
+                                .accessibilityHidden(true)
+                            
                             Text("""
                             All media-related metadata used in CastList, including actor, director, release dates, and poster art is supplied by The Movie Database (TMDb).
                             

@@ -48,6 +48,9 @@ struct CreditProfileView: View {
             }
             .frame(maxWidth: 50)
         }
+        .accessibilityHidden(true) // As of writing, this view is only an image
+        // so the entire view is hidden from VoiceOver.
+        // change this if the scope of this view changes
     }
 }
 
