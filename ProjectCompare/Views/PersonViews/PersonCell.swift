@@ -27,7 +27,8 @@ struct PersonCell: View {
             Button {
                 viewModel.clearSelectedPerson()
             } label: {
-                Label("Clear", systemImage: "x.circle")
+                Label("Remove", systemImage: "x.circle")
+                    .foregroundStyle(.red)
             }
         }
     }
