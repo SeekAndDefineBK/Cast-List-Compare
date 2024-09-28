@@ -37,6 +37,7 @@ struct PersonContainer: View {
             SearchPersonView(selectedPerson: $person)
         }
         .frame(maxWidth: .infinity)
+        .accessibilityLabel(getPersonAccessibilityLabel(person))
         .padding()
     }
     
@@ -49,6 +50,14 @@ struct PersonContainer: View {
     func clearSelectedPerson() {
         withAnimation {
             person = nil
+        }
+    }
+    
+    func getPersonAccessibilityLabel(_ person: Person?) -> String {
+        if let person = person {
+            return person.name
+        } else {
+            return "Select a person"
         }
     }
 }
