@@ -22,12 +22,14 @@ struct TutorialCompareView: View {
                 
                 CompareView(person1: person1, person2: person2)
             } else {
+                Text("All people need to be present to compare")
+                    .font(.title)
+                    .bold()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                
+                Spacer()
+                
                 Group {
-                    Text("All people need to be present to compare")
-                        .font(.title)
-                        .bold()
-                    
-                    
                     if let person1 = person1 {
                         Text("\(person1.name) is present")
                     } else {
@@ -39,14 +41,14 @@ struct TutorialCompareView: View {
                     } else {
                         Text("You need to select the second person on the previous screen.")
                     }
-                    
-                    Spacer()
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .frame(maxHeight: .infinity, alignment: .center)
-                .padding()
+                .padding(.vertical)
+                
+                Spacer()
             }
         }
+        .frame(maxHeight: .infinity, alignment: .center)
+        .padding()
         
     }
     
