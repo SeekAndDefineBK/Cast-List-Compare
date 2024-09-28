@@ -28,7 +28,7 @@ struct CompareView: View {
                 // MARK: Shared Productions views
                 List {
                     if !(viewModel.sharedCredits?.movieCredits.isEmpty ?? true) {
-                        Section("Movies") {
+                        Section("Movies (\(viewModel.getCreditCount(.movie)))") {
                             ForEach(viewModel.sharedCredits?.movieCredits ?? []) {
                                 CreditCompareView(credit: $0)
                                     .padding(.vertical)
@@ -37,7 +37,7 @@ struct CompareView: View {
                     }
                     
                     if !(viewModel.sharedCredits?.tvCredits.isEmpty ?? true) {
-                        Section("TV") {
+                        Section("TV (\(viewModel.getCreditCount(.movie)))") {
                             ForEach(viewModel.sharedCredits?.tvCredits ?? []) {
                                 CreditCompareView(credit: $0)
                                     .padding(.vertical)
@@ -76,6 +76,12 @@ struct CompareView: View {
                     .padding()
             }
             .backgroundStyle(.ultraThinMaterial)
+            .clipShape(RoundedRectangle(cornerRadius: 25))
+            .overlay {
+                RoundedRectangle(cornerRadius: 25)
+                    .stroke(.tertiary, lineWidth: 2)
+                    .opacity(0.4)
+            }
         }
         .ignoresSafeArea(edges: .bottom)
         .presentationDetents(viewModel.sharedCredits?.sharedCredits.isEmpty ?? true ? [.height(250)] : [])
@@ -127,6 +133,17 @@ extension CompareView {
             let count = sharedCredits?.sharedCredits.count ?? 0
             
             return "\(count) production\(count == 0 || count > 2 ? "s" : "")"
+        }
+        
+        func getCreditCount(_ mediaType: MediaType) -> Int {
+            switch mediaType {
+            case .tv:
+                return sharedCredits?.tvCredits.count ?? 0
+            case .movie:
+                return sharedCredits?.movieCredits.count ?? 0
+            case .unknown:
+                return -1
+            }
         }
     }
 }
