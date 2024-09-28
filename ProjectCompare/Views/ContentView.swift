@@ -79,6 +79,7 @@ struct ContentView: View {
                 .onDisappear {
                     showTutorial = false // set showTutorial to false so that it only shows once
                 }
+                .presentationBackground(.ultraThinMaterial)
         }
     }
 }
