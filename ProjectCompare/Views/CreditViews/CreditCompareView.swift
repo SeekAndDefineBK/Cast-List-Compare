@@ -46,6 +46,10 @@ struct CreditCompareView: View {
             }
             // this maxWidth: .infinity gives more space to the words than the poster
             .frame(maxWidth: .infinity)
+            .accessibilityLabel(
+                Text("""
+                \(viewModel.credit.title), \(viewModel.credit.person1) is \(viewModel.credit.person1Role), \(viewModel.credit.person2) is \(viewModel.credit.person2Role)
+                """))
         }
     }
 }
