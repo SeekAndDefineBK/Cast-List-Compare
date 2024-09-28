@@ -40,6 +40,15 @@ struct ContentView: View {
                 TabItem(view: Text("App Info"), index: 1, symbol: "ellipsis.circle")
             ]
         )
+        .shadow(radius: 2, x: 2, y: 2)
+    }
+    
+    @ViewBuilder
+    func backgroundFill() -> some View {
+        RoundedRectangle(cornerRadius: 10)
+            .foregroundStyle(Color(uiColor: .systemGray6))
+            .padding()
+            .shadow(radius: 2, x: 2, y: 2)
     }
     
     var body: some View {
@@ -52,10 +61,18 @@ struct ContentView: View {
                 // MARK: Main Tab
                 AppSearchView()
                 .tag(0)
+                .padding()
+                .background {
+                    backgroundFill()
+                }
 
                 // MARK: Secondary tab for Settings, History, Attribution
                 AppInfoView()
                 .tag(1)
+                .padding()
+                .background {
+                    backgroundFill()
+                }
             }
             .tabViewStyle(.page) // allows user to change tab with swipe
             .indexViewStyle(.page(backgroundDisplayMode: .interactive))
@@ -63,16 +80,6 @@ struct ContentView: View {
             if !titleOnTop {
                 tabTitleBar()
             }
-        }
-        .background {
-            LinearGradient(
-                colors: [
-                    viewModel.createGradientColor(for: colorScheme, color: .cyan), 
-                    viewModel.createGradientColor(for: colorScheme, color: .green)
-                ],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            ).ignoresSafeArea()
         }
         .sheet(isPresented: $showTutorial) {
             TutorialView()
@@ -93,12 +100,5 @@ extension ContentView {
         init() {}
                 
         // MARK: ViewModel Methods
-        func createGradientColor(for colorScheme: ColorScheme, color: Color) -> Color {
-            // determine the opacity given the color scheme
-            let opacity = colorScheme == .light ? 0.2 : 0.5
-            
-            // return desired color with opacity applied
-            return color.opacity(opacity)
-        }
     }
 }

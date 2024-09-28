@@ -49,6 +49,7 @@ struct AppSearchView: View {
                 }
             }
         }
+        .padding()
     }
 }
 

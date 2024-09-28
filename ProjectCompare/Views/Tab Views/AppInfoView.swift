@@ -20,7 +20,7 @@ struct AppInfoView: View {
         VStack(alignment: .leading) {
             Text("App Info")
                 .bold()
-                .font(.title)
+                .font(.title3)
                 .padding()
             
             List {
@@ -83,9 +83,8 @@ struct AppInfoView: View {
             .sheet(isPresented: $viewModel.showingTutorial) {
                 TutorialView()
             }
-     
         }
-
+        .frame(maxHeight: .infinity, alignment: .leading)
     }
 }
 
