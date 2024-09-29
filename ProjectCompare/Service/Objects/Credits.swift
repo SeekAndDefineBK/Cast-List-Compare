@@ -27,6 +27,7 @@ class CombinedCredits: Identifiable, Hashable, Codable {
         MediaType(rawValue: media_type) ?? .unknown
     }
     var poster_path: String?
+    var credit_id: String
     
     // MARK: Cast only properties
     var character: String?
@@ -89,7 +90,7 @@ class CombinedCredits: Identifiable, Hashable, Codable {
     
     // MARK: Codable Conformance
     enum CodingKeys: CodingKey {
-        case id, title, poster_path, release_date, character, department, job, media_type, name, first_air_date
+        case id, title, poster_path, release_date, character, department, job, media_type, name, first_air_date, credit_id
     }
     
     required init(from decoder: Decoder) throws {
@@ -104,5 +105,6 @@ class CombinedCredits: Identifiable, Hashable, Codable {
         media_type = try container.decode(String.self, forKey: .media_type)
         name = try? container.decode(String.self, forKey: .name)
         first_air_date = try? container.decode(String.self, forKey: .first_air_date)
+        credit_id = try container.decode(String.self, forKey: .credit_id)
     }
 }
