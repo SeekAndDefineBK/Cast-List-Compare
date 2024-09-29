@@ -88,6 +88,10 @@ struct ContentView: View {
                 }
                 .presentationBackground(.ultraThinMaterial)
         }
+        .background {
+            Color(uiColor: .systemGray5)
+                .ignoresSafeArea()
+        }
     }
 }
 
