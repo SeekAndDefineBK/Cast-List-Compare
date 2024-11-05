@@ -35,6 +35,18 @@ struct SharedCreditsContainer {
             let person2Details = person2Credits.first(where: {$0.id == id})
             
             if let person1Details = person1Details, let person2Details = person2Details {
+                
+                
+//                // End early if TV and episode date are not the same
+//                if person1Details.mediaType == .tv {
+//                    
+//                    guard person1Details.firstAirDate != person2Details.firstAirDate else {
+//                        return nil
+//                    }
+//                    
+//                }
+                
+                
                 // Define person1 roles/responsibilities
                 let person1Role = definePersonRole(credit: person1Details)
                 
