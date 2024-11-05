@@ -75,6 +75,8 @@
 		4053A3E12C320653006D9F24 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DD0922C2F2F2500A44B74 /* PersonCell.swift */; };
 		4053A3E22C320653006D9F24 /* PersonProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DD0952C2F320700A44B74 /* PersonProfileView.swift */; };
 		4053A3E32C320653006D9F24 /* SearchPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4018C66D2C2BC5E40005C2C4 /* SearchPersonView.swift */; };
+		408BFFE32CA8E971002A62E8 /* EpisodeCredits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408BFFE22CA8E971002A62E8 /* EpisodeCredits.swift */; };
+		408BFFE42CA8E971002A62E8 /* EpisodeCredits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408BFFE22CA8E971002A62E8 /* EpisodeCredits.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +136,7 @@
 		4053A3AA2C31EA5B006D9F24 /* TutorialSplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialSplashView.swift; sourceTree = "<group>"; };
 		4053A3AC2C31EA87006D9F24 /* TutorialSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialSearchView.swift; sourceTree = "<group>"; };
 		4053A3AE2C31EA9C006D9F24 /* TutorialCompareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCompareView.swift; sourceTree = "<group>"; };
+		408BFFE22CA8E971002A62E8 /* EpisodeCredits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCredits.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				4018C6662C2BAB960005C2C4 /* TMDBAPI-Person.swift */,
+				408BFFE12CA8E94F002A62E8 /* Credits */,
 				401146902C2CFD8A00B47803 /* TMDBAPI-Shared.swift */,
 				401DD0B42C30F88400A44B74 /* TMDBAPIError.swift */,
 			);
@@ -326,6 +330,14 @@
 				4053A3AE2C31EA9C006D9F24 /* TutorialCompareView.swift */,
 			);
 			path = Tutorial;
+			sourceTree = "<group>";
+		};
+		408BFFE12CA8E94F002A62E8 /* Credits */ = {
+			isa = PBXGroup;
+			children = (
+				408BFFE22CA8E971002A62E8 /* EpisodeCredits.swift */,
+			);
+			path = Credits;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -469,6 +481,7 @@
 			files = (
 				4018C66C2C2BBC360005C2C4 /* PersonSearchResult.swift in Sources */,
 				4018C6512C2BA7F10005C2C4 /* Person.swift in Sources */,
+				408BFFE42CA8E971002A62E8 /* EpisodeCredits.swift in Sources */,
 				401DD0A02C2FC08A00A44B74 /* TMDBAttributionView.swift in Sources */,
 				401146912C2CFD8A00B47803 /* TMDBAPI-Shared.swift in Sources */,
 				4018C6672C2BAB960005C2C4 /* TMDBAPI-Person.swift in Sources */,
@@ -503,6 +516,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				408BFFE32CA8E971002A62E8 /* EpisodeCredits.swift in Sources */,
 				401DD0A82C30F09D00A44B74 /* BaseTestCase.swift in Sources */,
 				401DD0B12C30F42800A44B74 /* TMDB-AssetTests.swift in Sources */,
 				401DD0BD2C30FB5900A44B74 /* Credits.swift in Sources */,
