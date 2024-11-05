@@ -50,6 +50,7 @@ struct AppSearchView: View {
             }
         }
         .padding()
+        .accessibilityLabel(viewModel.accessibilityLabel)
     }
 }
 
@@ -72,6 +73,36 @@ extension AppSearchView {
             
             // return desired color with opacity applied
             return color.opacity(opacity)
+        }
+        
+        
+        // MARK: Accessibility Properties
+        var accessibilityLabel: String {
+            if let person1, let person2 {
+                return bothPeoplePresentLabel(person1.name, person2.name)
+            } else if person1 != nil || person2 != nil {
+                return missingOnePersonLabel
+            } else {
+                return missingBothPeopleLabel
+            }
+        }
+        
+        private func bothPeoplePresentLabel(_ personName1: String, _ personName2: String) -> String {
+            "How many times as \(personName1) been in the same movie as \(personName2)."
+        }
+        
+        private var missingOnePersonLabel: String {
+            var personName = person1?.name
+            
+            if personName == nil {
+                personName = person2?.name
+            }
+
+            return "Select another person to match productions with \(personName ?? "Unknown")"
+        }
+        
+        private var missingBothPeopleLabel: String {
+            "Find out how many times 2 people have been in the same production together."
         }
     }
 }
