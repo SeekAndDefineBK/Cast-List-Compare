@@ -8,31 +8,55 @@
 import SwiftUI
 
 struct AppSearchView: View {
+    @AppStorage("showingHistory") var shwowingHistory: Bool = false
     @StateObject private var viewModel = AppSearchViewModel()
     
     var body: some View {
-        VStack {
-            Text("How many times has")
-                .font(.title)
-                .bold()
-            
-            PersonContainer(person: $viewModel.person1)
-            
-            Text("been in the same movie as")
-                .font(.title2)
-                .bold()
-            
-            PersonContainer(person: $viewModel.person2)
-                 
-            Button {
-                viewModel.showingCompare = true
-            } label: {
-                Text("Find out")
+        ScrollView(.vertical) {
+            VStack {
+                Text("How many times has")
+                    .font(.title)
+                    .bold()
+                
+                PersonContainer(person: $viewModel.person1)
+                
+                Text("been in the same movie as")
+                    .font(.title2)
+                    .bold()
+                
+                PersonContainer(person: $viewModel.person2)
+                     
+                Button {
+                    viewModel.showingCompare = true
+                } label: {
+                    Text("Find out")
+                }
+                .accessibilityIdentifier("Compare")
+                .buttonStyle(.borderedProminent) // signifies main action user should take
+                .disabled(viewModel.person1 == nil || viewModel.person2 == nil)
             }
-            .accessibilityIdentifier("Compare")
-            .buttonStyle(.borderedProminent) // signifies main action user should take
-            .disabled(viewModel.person1 == nil || viewModel.person2 == nil)
+            
+            DisclosureGroup(isExpanded: $shwowingHistory) {
+                ForEach(1...10, id: \.self) { index in
+                    GroupBox {
+                        HStack {
+                            Text("Person 1")
+                                .frame(maxWidth: .infinity)
+                            Text("Person 2")
+                                .frame(maxWidth: .infinity)
+                        }
+                        
+                        Text("Appears in \(index) titles together.")
+                    }
+                }
+            } label: {
+                Label("History", systemImage: "clock.arrow.trianglehead.counterclockwise.rotate.90")
+                    .fontWeight(.medium)
+                
+            }
+            .padding()
         }
+        .contentMargins(.vertical, 150, for: .scrollContent)
         .sheet(isPresented: $viewModel.searchForPerson1) {
             SearchPersonView(selectedPerson: $viewModel.person1)
         }
@@ -60,6 +84,7 @@ extension AppSearchView {
         @Published var searchForPerson1 = false
         @Published var searchForPerson2 = false
         @Published var showingCompare = false
+        
         
         // MARK: ViewModel Initializers
         init() {}
