@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		401146812C2CEBCB00B47803 /* TMDBAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401146802C2CEBCB00B47803 /* TMDBAPIKey.swift */; };
 		401146912C2CFD8A00B47803 /* TMDBAPI-Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401146902C2CFD8A00B47803 /* TMDBAPI-Shared.swift */; };
 		401146952C2D0BC300B47803 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401146942C2D0BC300B47803 /* ContentView.swift */; };
 		401146982C2D0C7200B47803 /* PersonContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401146972C2D0C7200B47803 /* PersonContainer.swift */; };
@@ -38,7 +37,6 @@
 		401DD0B72C30FA9B00A44B74 /* TMDBAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DD0B42C30F88400A44B74 /* TMDBAPIError.swift */; };
 		401DD0B82C30FA9F00A44B74 /* TMDBAPI-Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401146902C2CFD8A00B47803 /* TMDBAPI-Shared.swift */; };
 		401DD0B92C30FAA100A44B74 /* TMDBAPI-Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4018C6662C2BAB960005C2C4 /* TMDBAPI-Person.swift */; };
-		401DD0BA2C30FAA400A44B74 /* TMDBAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401146802C2CEBCB00B47803 /* TMDBAPIKey.swift */; };
 		401DD0BB2C30FAA400A44B74 /* TMDBKeyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4018C64D2C2BA24B0005C2C4 /* TMDBKeyProtocol.swift */; };
 		401DD0BC2C30FAA600A44B74 /* TMDBAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4018C64B2C2B62B80005C2C4 /* TMDBAPI.swift */; };
 		401DD0BD2C30FB5900A44B74 /* Credits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4018C6542C2BA8030005C2C4 /* Credits.swift */; };
@@ -75,6 +73,8 @@
 		4053A3E12C320653006D9F24 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DD0922C2F2F2500A44B74 /* PersonCell.swift */; };
 		4053A3E22C320653006D9F24 /* PersonProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DD0952C2F320700A44B74 /* PersonProfileView.swift */; };
 		4053A3E32C320653006D9F24 /* SearchPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4018C66D2C2BC5E40005C2C4 /* SearchPersonView.swift */; };
+		40EDC6902CE2F6D700152879 /* TMDBAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EDC68F2CE2F6D700152879 /* TMDBAPIKey.swift */; };
+		40EDC6912CE2F6D700152879 /* TMDBAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EDC68F2CE2F6D700152879 /* TMDBAPIKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,7 +95,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		401146802C2CEBCB00B47803 /* TMDBAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBAPIKey.swift; sourceTree = "<group>"; };
 		401146902C2CFD8A00B47803 /* TMDBAPI-Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TMDBAPI-Shared.swift"; sourceTree = "<group>"; };
 		401146942C2D0BC300B47803 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		401146972C2D0C7200B47803 /* PersonContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonContainer.swift; sourceTree = "<group>"; };
@@ -134,6 +133,7 @@
 		4053A3AA2C31EA5B006D9F24 /* TutorialSplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialSplashView.swift; sourceTree = "<group>"; };
 		4053A3AC2C31EA87006D9F24 /* TutorialSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialSearchView.swift; sourceTree = "<group>"; };
 		4053A3AE2C31EA9C006D9F24 /* TutorialCompareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCompareView.swift; sourceTree = "<group>"; };
+		40EDC68F2CE2F6D700152879 /* TMDBAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBAPIKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,7 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				401DD0B22C30F84000A44B74 /* APIKeyValidation.swift */,
-				401146802C2CEBCB00B47803 /* TMDBAPIKey.swift */,
+				40EDC68F2CE2F6D700152879 /* TMDBAPIKey.swift */,
 				4018C64D2C2BA24B0005C2C4 /* TMDBKeyProtocol.swift */,
 			);
 			path = Authentication;
@@ -472,10 +472,10 @@
 				401DD0A02C2FC08A00A44B74 /* TMDBAttributionView.swift in Sources */,
 				401146912C2CFD8A00B47803 /* TMDBAPI-Shared.swift in Sources */,
 				4018C6672C2BAB960005C2C4 /* TMDBAPI-Person.swift in Sources */,
-				401146812C2CEBCB00B47803 /* TMDBAPIKey.swift in Sources */,
 				4018C6312C2B5CC20005C2C4 /* ProjectCompareApp.swift in Sources */,
 				4053A3A52C31E23D006D9F24 /* AppSearchView.swift in Sources */,
 				402F49D22C2E133800DBDDE4 /* Array.swift in Sources */,
+				40EDC6912CE2F6D700152879 /* TMDBAPIKey.swift in Sources */,
 				401DD0B52C30F88400A44B74 /* TMDBAPIError.swift in Sources */,
 				4053A3AB2C31EA5B006D9F24 /* TutorialSplashView.swift in Sources */,
 				401DD09B2C2FB18500A44B74 /* CreditCompareView.swift in Sources */,
@@ -508,6 +508,7 @@
 				401DD0BD2C30FB5900A44B74 /* Credits.swift in Sources */,
 				401DD0C32C30FBD500A44B74 /* SharedCredits.swift in Sources */,
 				4053A3CD2C320496006D9F24 /* AppSearchView.swift in Sources */,
+				40EDC6902CE2F6D700152879 /* TMDBAPIKey.swift in Sources */,
 				4053A3E02C32063A006D9F24 /* CreditProfileView.swift in Sources */,
 				401DD0BE2C30FB5900A44B74 /* Person.swift in Sources */,
 				401DD0BF2C30FB5900A44B74 /* PersonSearchResult.swift in Sources */,
@@ -532,7 +533,6 @@
 				4053A3E32C320653006D9F24 /* SearchPersonView.swift in Sources */,
 				401DD0B72C30FA9B00A44B74 /* TMDBAPIError.swift in Sources */,
 				401DD0B62C30FA5A00A44B74 /* APIKeyValidation.swift in Sources */,
-				401DD0BA2C30FAA400A44B74 /* TMDBAPIKey.swift in Sources */,
 				4053A3DF2C320629006D9F24 /* TutorialCompareView.swift in Sources */,
 				401DD0BB2C30FAA400A44B74 /* TMDBKeyProtocol.swift in Sources */,
 				4053A3CF2C3204A0006D9F24 /* AppInfoView.swift in Sources */,
@@ -864,8 +864,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SeekAndDefineBK/TabTitleBar";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
