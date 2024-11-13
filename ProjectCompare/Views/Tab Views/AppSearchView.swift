@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AppSearchView: View {
     @AppStorage("showingHistory") var shwowingHistory: Bool = false
-    @StateObject private var viewModel = AppSearchViewModel()
+    @State private var viewModel = AppSearchViewModel()
     
     var body: some View {
         ScrollView(.vertical) {
@@ -77,14 +77,14 @@ struct AppSearchView: View {
 }
 
 extension AppSearchView {
-    class AppSearchViewModel: ObservableObject {
+    @Observable
+    class AppSearchViewModel {
         // MARK: ViewModel Properties
-        @Published var person1: Person?
-        @Published var person2: Person?
-        @Published var searchForPerson1 = false
-        @Published var searchForPerson2 = false
-        @Published var showingCompare = false
-        
+        var person1: Person?
+        var person2: Person?
+        var searchForPerson1 = false
+        var searchForPerson2 = false
+        var showingCompare = false
         
         // MARK: ViewModel Initializers
         init() {}
