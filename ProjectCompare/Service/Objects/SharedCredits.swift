@@ -4,12 +4,14 @@
 //
 //  Created by bk on 6/27/24.
 //
-
 import Foundation
+import SwiftData
 
 /// Convenience structure to store shared details between person1 and person2
 /// This makes UI work easier because all of the properties needed are constructed here
-struct SharedCreditsContainer {
+@Model
+class SharedCreditsContainer {
+    @Attribute(.unique) var id: String
     var person1: Person
     var person2: Person
     
@@ -95,6 +97,15 @@ struct SharedCreditsContainer {
         let filtered = sharedCredits.filter({$0.mediaType == .tv})
         
         return filtered.sorted(by: {$0.releaseDate ?? .distantPast > $1.releaseDate ?? .distantPast})
+    }
+    
+    init(person1: Person, person2: Person, person1Credits: [CombinedCredits], person2Credits: [CombinedCredits]) {
+        self.person1 = person1
+        self.person2 = person2
+        self.person1Credits = person1Credits
+        self.person2Credits = person2Credits
+        
+        self.id = "\(person1.id) + \(person2.id)"
     }
     
     // Convenience string constructor for Person Role
