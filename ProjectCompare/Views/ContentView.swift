@@ -57,6 +57,7 @@ struct ContentView: View {
                 AppInfoView()
                 .tag(1)
             }
+            .animation(.smooth, value: selectedTab)
             .tabViewStyle(.page) // allows user to change tab with swipe
             .indexViewStyle(.page(backgroundDisplayMode: .interactive))
             
