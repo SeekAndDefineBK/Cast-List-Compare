@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct PersonCell: View {
-    @StateObject private var viewModel: PersonCellModel
+    @State private var viewModel: PersonCellModel
     
     init(person: Person, clearSelectedPerson: @escaping () -> Void) {
         let model = PersonCellModel(
             person: person,
             clearSelectedPerson: clearSelectedPerson
         )
-        _viewModel = StateObject(wrappedValue: model)
+        _viewModel = State(wrappedValue: model)
     }
     
     var body: some View {
@@ -34,7 +34,8 @@ struct PersonCell: View {
 }
 
 extension PersonCell {
-    class PersonCellModel: ObservableObject {
+    @Observable
+    class PersonCellModel {
         // MARK: ViewModel Properties
         let person: Person
         let tmdb = TMDBAPI.shared

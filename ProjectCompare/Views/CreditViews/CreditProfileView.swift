@@ -9,11 +9,11 @@ import SwiftUI
 import CachedAsyncImage
 
 struct CreditProfileView: View {
-    @StateObject private var viewModel: CreditProfileViewModel
+    @State private var viewModel: CreditProfileViewModel
     
     init(credit: SharedCredit) {
         let model = CreditProfileViewModel(credit: credit)
-        _viewModel = StateObject(wrappedValue: model)
+        _viewModel = State(wrappedValue: model)
     }
     
     @ViewBuilder
@@ -52,7 +52,8 @@ struct CreditProfileView: View {
 }
 
 extension CreditProfileView {
-    class CreditProfileViewModel: ObservableObject {
+    @Observable
+    class CreditProfileViewModel {
         // MARK: ViewModel Properties
         var credit: SharedCredit
         let tmdb = TMDBAPI.shared

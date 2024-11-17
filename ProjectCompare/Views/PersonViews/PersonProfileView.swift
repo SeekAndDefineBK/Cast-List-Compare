@@ -9,11 +9,11 @@ import SwiftUI
 import CachedAsyncImage
 
 struct PersonProfileView: View {
-    @StateObject private var viewModel: PersonProfileViewModel
+    @State private var viewModel: PersonProfileViewModel
     
     init(person: Person) {
         let model = PersonProfileViewModel(person: person)
-        _viewModel = StateObject(wrappedValue: model)
+        _viewModel = State(wrappedValue: model)
     }
     
     @ViewBuilder
@@ -58,7 +58,8 @@ struct PersonProfileView: View {
 }
 
 extension PersonProfileView {
-    class PersonProfileViewModel: ObservableObject {
+    @Observable
+    class PersonProfileViewModel {
         // MARK: ViewModel Properties
         let person: Person
         let tmdb = TMDBAPI.shared

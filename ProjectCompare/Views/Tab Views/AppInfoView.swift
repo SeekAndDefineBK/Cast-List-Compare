@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AppInfoView: View {
-    @StateObject private var viewModel = AppInfoViewModel()
+    @State private var viewModel = AppInfoViewModel()
     @AppStorage("titleOnTop") var titleOnTop: Bool = false
     
     // These are setup as User Defaults so it remembers if the user chose to collapse the group after relaunch
@@ -88,9 +88,11 @@ struct AppInfoView: View {
 }
 
 extension AppInfoView {
-    class AppInfoViewModel: ObservableObject {
+    @Observable
+    class AppInfoViewModel {
         // MARK: ViewModel Properties
-        @Published var showingTutorial = false
+        var showingTutorial = false
+        
         // MARK: ViewModel Initializers
         init() {}
                 

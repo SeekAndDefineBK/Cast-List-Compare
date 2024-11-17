@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TutorialSearchView: View {
-    @StateObject private var viewModel = TutorialSearchViewModel()
+    @State private var viewModel = TutorialSearchViewModel()
     @Binding var person1: Person?
     @Binding var person2: Person?
     var continueAction: () -> Void
@@ -41,12 +41,13 @@ struct TutorialSearchView: View {
 }
 
 extension TutorialSearchView {
-    class TutorialSearchViewModel: ObservableObject {
+    @Observable
+    class TutorialSearchViewModel {
         // MARK: ViewModel Properties
-        @Published var person1: Person?
-        @Published var person2: Person?
-        @Published var searchForPerson1 = false
-        @Published var searchForPerson2 = false
+        var person1: Person?
+        var person2: Person?
+        var searchForPerson1 = false
+        var searchForPerson2 = false
         
         // MARK: ViewModel Initializers
         init() {}

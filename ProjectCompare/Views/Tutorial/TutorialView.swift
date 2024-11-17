@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TutorialView: View {
     @Environment(\.dismiss) var dismiss
-    @StateObject private var viewModel = TutorialViewModel()
+    @State private var viewModel = TutorialViewModel()
     
     var body: some View {
         VStack {
@@ -50,11 +50,12 @@ struct TutorialView: View {
 }
 
 extension TutorialView {
-    class TutorialViewModel: ObservableObject {
+    @Observable
+    class TutorialViewModel {
         // MARK: ViewModel Properties
-        @Published var person1: Person?
-        @Published var person2: Person?
-        @Published var selectedTab = 0
+        var person1: Person?
+        var person2: Person?
+        var selectedTab = 0
         
         // MARK: ViewModel Initializers
         init() {}

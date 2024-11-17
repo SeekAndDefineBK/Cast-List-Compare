@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct CreditCompareView: View {
-    @StateObject private var viewModel: CreditCompareViewModel
+    @State private var viewModel: CreditCompareViewModel
     
     init(credit: SharedCredit) {
         let model = CreditCompareViewModel(credit: credit)
-        _viewModel = StateObject(wrappedValue: model)
+        _viewModel = State(wrappedValue: model)
     }
     
     var body: some View {
@@ -51,7 +51,8 @@ struct CreditCompareView: View {
 }
 
 extension CreditCompareView {
-    class CreditCompareViewModel: ObservableObject {
+    @Observable
+    class CreditCompareViewModel {
         // MARK: ViewModel Properties
         var credit: SharedCredit
         let tmdb = TMDBAPI.shared

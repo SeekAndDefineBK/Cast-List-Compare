@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct CompareView: View {
-    @StateObject private var viewModel: CompareViewModel
+    @State private var viewModel: CompareViewModel
     
     init(person1: Person, person2: Person) {
         let model = CompareViewModel(person1: person1, person2: person2)
-        _viewModel = StateObject(wrappedValue: model)
+        _viewModel = State(wrappedValue: model)
     }
     
     var body: some View {
@@ -83,20 +83,22 @@ struct CompareView: View {
 }
 
 extension CompareView {
+    
+    @Observable
     @MainActor
-    class CompareViewModel: ObservableObject {
+    class CompareViewModel {
         // MARK: ViewModel Properties
-        @Published var person1: Person
-        @Published var person2: Person
+        var person1: Person
+        var person2: Person
         
         let tmdb = TMDBAPI.shared
         
-        @Published var sharedCredits: SharedCreditsContainer? = nil
+        var sharedCredits: SharedCreditsContainer? = nil
         
         // MARK: ViewModel Initializers
         init(person1: Person, person2: Person) {
-            _person1 = Published(wrappedValue: person1)
-            _person2 = Published(wrappedValue: person2)
+            self.person1 = person1
+            self.person2 = person2
             
             Task {
                 await getCredits()

@@ -9,7 +9,7 @@ import SwiftUI
 import TabTitleBar
 
 struct ContentView: View {
-    @StateObject private var viewModel = ContentViewModel()
+    @State private var viewModel = ContentViewModel()
     @Environment(\.colorScheme) var colorScheme
 
     init() {
@@ -84,9 +84,10 @@ struct ContentView: View {
 }
 
 extension ContentView {
-    class ContentViewModel: ObservableObject {
+    @Observable
+    class ContentViewModel {
         // MARK: ViewModel Properties
-        @Published var showingCompare = false
+        var showingCompare = false
         
         // MARK: ViewModel Initializers
         init() {}

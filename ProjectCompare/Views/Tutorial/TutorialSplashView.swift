@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TutorialSplashView: View {
-    @StateObject private var viewModel = TutorialSplashViewModel()
+    @State private var viewModel = TutorialSplashViewModel()
     var continueAction: () -> Void
     
     var body: some View {
@@ -47,7 +47,8 @@ struct TutorialSplashView: View {
 }
 
 extension TutorialSplashView {
-    class TutorialSplashViewModel: ObservableObject {
+    @Observable
+    class TutorialSplashViewModel {
         // MARK: ViewModel Properties
 
         // MARK: ViewModel Initializers
