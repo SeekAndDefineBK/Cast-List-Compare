@@ -5,9 +5,11 @@
 //  Created by Brett Koster on 6/25/24.
 //
 
-import Foundation
+import SwiftData
 
+@Model
 class Person: Identifiable, Hashable, Equatable, Codable {
+    // MARK: Values from TMDB
     var id: Int
     var name: String
     var popularity: Double
@@ -15,6 +17,9 @@ class Person: Identifiable, Hashable, Equatable, Codable {
     // MARK: Profile Image
     // This is optional because sometimes the Person doesn't have an image associated
     var profile_path: String?
+    
+    // MARK: SwiftData Relationships
+    var sharedCredits: [SharedCreditsContainer]?
     
     init(
         id: Int,
