@@ -6,24 +6,28 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct HistoryView: View {
+    @Query var pastPeople: [Person]
+    @Query var pastSearches: [SharedCreditsContainer]
+    
     var body: some View {
         NavigationStack {
             List {
-                ForEach(1...10, id: \.self) { index in
-                    VStack(alignment: .leading) {
-                        HStack {
-                            Text("Person 1")
-                        
-                            Spacer()
-                            
-                            Text("Person 2")
-                        }
-                        
-                        Text("Appears in \(index) titles together.")
+                Section(header: Text("People")) {
+                    ForEach(pastPeople) {
+                        PersonProfileView(person: $0)
                     }
                 }
+                
+                Section(header: Text("Comparisons")) {
+                    ForEach(pastSearches) { search in
+                        SharedCreditSummary(search)
+                    }
+                }
+                
+                
             }
             .navigationTitle("History")
         }
