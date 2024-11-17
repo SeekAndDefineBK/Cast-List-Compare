@@ -12,51 +12,47 @@ struct AppSearchView: View {
     @State private var viewModel = AppSearchViewModel()
     
     var body: some View {
-        ScrollView(.vertical) {
-            VStack {
-                Text("How many times has")
+        VStack {
+            HStack {
+                Text("Search")
+                    .bold()
                     .font(.title)
-                    .bold()
+                    .padding()
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 
-                PersonContainer(person: $viewModel.person1)
-                
-                Text("been in the same movie as")
-                    .font(.title2)
-                    .bold()
-                
-                PersonContainer(person: $viewModel.person2)
-                     
                 Button {
-                    viewModel.showingCompare = true
+                    viewModel.showingHistory = true
                 } label: {
-                    Text("Find out")
+                    Label("History", systemImage: "clock.arrow.trianglehead.counterclockwise.rotate.90")
+                        .fontWeight(.medium)
                 }
-                .accessibilityIdentifier("Compare")
-                .buttonStyle(.borderedProminent) // signifies main action user should take
-                .disabled(viewModel.person1 == nil || viewModel.person2 == nil)
+                .frame(maxWidth: .infinity, alignment: .trailing)
             }
+            .padding(.horizontal)
+            .padding(.bottom)
             
-            DisclosureGroup(isExpanded: $shwowingHistory) {
-                ForEach(1...10, id: \.self) { index in
-                    GroupBox {
-                        HStack {
-                            Text("Person 1")
-                                .frame(maxWidth: .infinity)
-                            Text("Person 2")
-                                .frame(maxWidth: .infinity)
-                        }
-                        
-                        Text("Appears in \(index) titles together.")
-                    }
-                }
+            Text("How many times has")
+                .font(.title3)
+                .bold()
+            
+            PersonContainer(person: $viewModel.person1)
+            
+            Text("been in the same movie as")
+                .font(.title3)
+                .bold()
+            
+            PersonContainer(person: $viewModel.person2)
+                 
+            Button {
+                viewModel.showingCompare = true
             } label: {
-                Label("History", systemImage: "clock.arrow.trianglehead.counterclockwise.rotate.90")
-                    .fontWeight(.medium)
-                
+                Text("Find out")
             }
-            .padding()
+            .accessibilityIdentifier("Compare")
+            .buttonStyle(.borderedProminent) // signifies main action user should take
+            .disabled(viewModel.person1 == nil || viewModel.person2 == nil)
         }
-        .contentMargins(.vertical, 150, for: .scrollContent)
+        .frame(maxHeight: .infinity, alignment: .top)
         .sheet(isPresented: $viewModel.searchForPerson1) {
             SearchPersonView(selectedPerson: $viewModel.person1)
         }
@@ -73,6 +69,9 @@ struct AppSearchView: View {
                 }
             }
         }
+        .sheet(isPresented: $viewModel.showingHistory) {
+            HistoryView()
+        }
     }
 }
 
@@ -85,6 +84,7 @@ extension AppSearchView {
         var searchForPerson1 = false
         var searchForPerson2 = false
         var showingCompare = false
+        var showingHistory = false
         
         // MARK: ViewModel Initializers
         init() {}
