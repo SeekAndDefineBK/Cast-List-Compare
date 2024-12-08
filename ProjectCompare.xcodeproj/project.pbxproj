@@ -71,10 +71,10 @@
 		4053A3E12C320653006D9F24 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DD0922C2F2F2500A44B74 /* PersonCell.swift */; };
 		4053A3E22C320653006D9F24 /* PersonProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DD0952C2F320700A44B74 /* PersonProfileView.swift */; };
 		4053A3E32C320653006D9F24 /* SearchPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4018C66D2C2BC5E40005C2C4 /* SearchPersonView.swift */; };
-		40A55CF82CEA4A5D00BAFE9B /* TabTitleBar in Frameworks */ = {isa = PBXBuildFile; productRef = 40A55CF72CEA4A5D00BAFE9B /* TabTitleBar */; };
-		40A55CFB2CEA4AC200BAFE9B /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 40A55CFA2CEA4AC200BAFE9B /* CachedAsyncImage */; };
 		40A55CFE2CEA4F7900BAFE9B /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A55CFD2CEA4F7900BAFE9B /* HistoryView.swift */; };
 		40A55CFF2CEA4F7900BAFE9B /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A55CFD2CEA4F7900BAFE9B /* HistoryView.swift */; };
+		40A55D052CEAEC7300BAFE9B /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 40A55D042CEAEC7300BAFE9B /* CachedAsyncImage */; };
+		40A55D092CEAECC300BAFE9B /* TabTitleBar in Frameworks */ = {isa = PBXBuildFile; productRef = 40A55D082CEAECC300BAFE9B /* TabTitleBar */; };
 		40EDC6902CE2F6D700152879 /* TMDBAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EDC68F2CE2F6D700152879 /* TMDBAPIKey.swift */; };
 		40EDC6912CE2F6D700152879 /* TMDBAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EDC68F2CE2F6D700152879 /* TMDBAPIKey.swift */; };
 /* End PBXBuildFile section */
@@ -144,8 +144,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40A55CF82CEA4A5D00BAFE9B /* TabTitleBar in Frameworks */,
-				40A55CFB2CEA4AC200BAFE9B /* CachedAsyncImage in Frameworks */,
+				40A55D052CEAEC7300BAFE9B /* CachedAsyncImage in Frameworks */,
+				40A55D092CEAECC300BAFE9B /* TabTitleBar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +184,7 @@
 				4018C62F2C2B5CC20005C2C4 /* ProjectCompare */,
 				401DD0A62C30F09D00A44B74 /* ProjectCompareTests */,
 				401DD0D92C3107F800A44B74 /* ProjectCompareUITests */,
+				40A55D032CEAEC7300BAFE9B /* Frameworks */,
 				4018C62E2C2B5CC20005C2C4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -204,6 +205,7 @@
 				402F49D02C2E132100DBDDE4 /* Extension */,
 				4018C6412C2B5FD10005C2C4 /* Views */,
 				4018C6402C2B5FC60005C2C4 /* Service */,
+				40A55D002CEA52D000BAFE9B /* SwiftData */,
 				4018C6342C2B5CC30005C2C4 /* Assets.xcassets */,
 				4018C6362C2B5CC30005C2C4 /* Preview Content */,
 			);
@@ -247,7 +249,6 @@
 		4018C64F2C2BA7DC0005C2C4 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				4018C6502C2BA7F10005C2C4 /* Person.swift */,
 				4018C66B2C2BBC360005C2C4 /* PersonSearchResult.swift */,
 				4018C6542C2BA8030005C2C4 /* Credits.swift */,
 				401DD08D2C2E632900A44B74 /* MediaType.swift */,
@@ -340,6 +341,21 @@
 			path = History;
 			sourceTree = "<group>";
 		};
+		40A55D002CEA52D000BAFE9B /* SwiftData */ = {
+			isa = PBXGroup;
+			children = (
+				4018C6502C2BA7F10005C2C4 /* Person.swift */,
+			);
+			path = SwiftData;
+			sourceTree = "<group>";
+		};
+		40A55D032CEAEC7300BAFE9B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -357,8 +373,8 @@
 			);
 			name = ProjectCompare;
 			packageProductDependencies = (
-				40A55CF72CEA4A5D00BAFE9B /* TabTitleBar */,
-				40A55CFA2CEA4AC200BAFE9B /* CachedAsyncImage */,
+				40A55D042CEAEC7300BAFE9B /* CachedAsyncImage */,
+				40A55D082CEAECC300BAFE9B /* TabTitleBar */,
 			);
 			productName = ProjectCompare;
 			productReference = 4018C62D2C2B5CC20005C2C4 /* ProjectCompare.app */;
@@ -433,8 +449,8 @@
 			);
 			mainGroup = 4018C6242C2B5CC20005C2C4;
 			packageReferences = (
-				40A55CF62CEA4A5D00BAFE9B /* XCRemoteSwiftPackageReference "TabTitleBar" */,
-				40A55CF92CEA4AC200BAFE9B /* XCRemoteSwiftPackageReference "CachedAsyncImage" */,
+				40A55D012CEAEC3C00BAFE9B /* XCRemoteSwiftPackageReference "CachedAsyncImage" */,
+				40A55D072CEAECC300BAFE9B /* XCRemoteSwiftPackageReference "TabTitleBar" */,
 			);
 			productRefGroup = 4018C62E2C2B5CC20005C2C4 /* Products */;
 			projectDirPath = "";
@@ -866,15 +882,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		40A55CF62CEA4A5D00BAFE9B /* XCRemoteSwiftPackageReference "TabTitleBar" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SeekAndDefineBK/TabTitleBar";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		40A55CF92CEA4AC200BAFE9B /* XCRemoteSwiftPackageReference "CachedAsyncImage" */ = {
+		40A55D012CEAEC3C00BAFE9B /* XCRemoteSwiftPackageReference "CachedAsyncImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bullinnyc/CachedAsyncImage";
 			requirement = {
@@ -882,18 +890,26 @@
 				minimumVersion = 2.6.0;
 			};
 		};
+		40A55D072CEAECC300BAFE9B /* XCRemoteSwiftPackageReference "TabTitleBar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SeekAndDefineBK/TabTitleBar";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		40A55CF72CEA4A5D00BAFE9B /* TabTitleBar */ = {
+		40A55D042CEAEC7300BAFE9B /* CachedAsyncImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 40A55CF62CEA4A5D00BAFE9B /* XCRemoteSwiftPackageReference "TabTitleBar" */;
-			productName = TabTitleBar;
-		};
-		40A55CFA2CEA4AC200BAFE9B /* CachedAsyncImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 40A55CF92CEA4AC200BAFE9B /* XCRemoteSwiftPackageReference "CachedAsyncImage" */;
+			package = 40A55D012CEAEC3C00BAFE9B /* XCRemoteSwiftPackageReference "CachedAsyncImage" */;
 			productName = CachedAsyncImage;
+		};
+		40A55D082CEAECC300BAFE9B /* TabTitleBar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 40A55D072CEAECC300BAFE9B /* XCRemoteSwiftPackageReference "TabTitleBar" */;
+			productName = TabTitleBar;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
