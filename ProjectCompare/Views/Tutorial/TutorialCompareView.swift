@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TutorialCompareView: View {
+    @Environment(\.modelContext) var modelContext
 //    @StateObject private var viewModel: TutorialCompareViewModel
     @Binding var person1: Person?
     @Binding var person2: Person?
@@ -19,7 +20,7 @@ struct TutorialCompareView: View {
                 Text("And here is your answer!")
                     .font(.title)
                     .bold()
-                CompareView(person1: person1, person2: person2)
+                CompareView(person1: person1, person2: person2, modelContext: modelContext)
             } else {
                 Text("All people need to be present to compare")
                 
