@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct CompareView: View {
     @State private var viewModel: CompareViewModel
     
-    init(person1: Person, person2: Person) {
-        let model = CompareViewModel(person1: person1, person2: person2)
+    init(person1: Person, person2: Person, modelContext: ModelContext) {
+        let model = CompareViewModel(person1: person1, person2: person2, modelContext: modelContext)
         _viewModel = State(wrappedValue: model)
     }
     
@@ -58,27 +59,48 @@ struct CompareView: View {
             }
             
             // MARK: Summarize the data for the user
-            GroupBox {
-                ViewThatFits(in: .horizontal) {
-                    HStack {
-                        PersonProfileView(person: viewModel.person1)
-                        PersonProfileView(person: viewModel.person2)
-                    }
-                    
-                    VStack {
-                        PersonProfileView(person: viewModel.person1)
-                        PersonProfileView(person: viewModel.person2)
-                    }
-                }
-                .padding()
-                
-                Text("\(viewModel.person1.name) and \(viewModel.person2.name) have been in \(viewModel.getPlural()) together")
-                    .padding()
+            if let sharedCredits = viewModel.sharedCredits {
+                SharedCreditSummary(sharedCredits)
+                    .backgroundStyle(.ultraThinMaterial)
             }
-            .backgroundStyle(.ultraThinMaterial)
         }
         .ignoresSafeArea(edges: .bottom)
         .presentationDetents(viewModel.sharedCredits?.sharedCredits.isEmpty ?? true ? [.height(250)] : [])
+    }
+}
+
+struct SharedCreditSummary: View {
+    let sharedCredits: SharedCreditsContainer
+    
+    init(_ sharedCredits: SharedCreditsContainer) {
+        self.sharedCredits = sharedCredits
+    }
+    
+    var body: some View {
+        GroupBox {
+            ViewThatFits(in: .horizontal) {
+                HStack {
+                    PersonProfileView(person: sharedCredits.person1)
+                    PersonProfileView(person: sharedCredits.person2)
+                }
+                
+                VStack {
+                    PersonProfileView(person: sharedCredits.person1)
+                    PersonProfileView(person: sharedCredits.person2)
+                }
+            }
+            .padding()
+            
+            Text("\(sharedCredits.person1.name) and \(sharedCredits.person2.name) have been in \(getPlural()) together")
+                .padding()
+        }
+    }
+    
+    // Convenience phrasing constructor for if production should be plural
+    func getPlural() -> String {
+        let count = sharedCredits.sharedCredits.count
+        
+        return "\(count) production\(count == 0 || count > 2 ? "s" : "")"
     }
 }
 
@@ -95,10 +117,14 @@ extension CompareView {
         
         var sharedCredits: SharedCreditsContainer? = nil
         
+        // MARK: SwiftData Properties
+        var modelContext: ModelContext
+        
         // MARK: ViewModel Initializers
-        init(person1: Person, person2: Person) {
+        init(person1: Person, person2: Person, modelContext: ModelContext) {
             self.person1 = person1
             self.person2 = person2
+            self.modelContext = modelContext
             
             Task {
                 await getCredits()
@@ -116,19 +142,17 @@ extension CompareView {
                 return
             }
             
-            sharedCredits = SharedCreditsContainer(
+            let newContainer = SharedCreditsContainer(
                 person1: person1,
                 person2: person2,
                 person1Credits: person1Credits,
                 person2Credits: person2Credits
             )
-        }
-        
-        // Convenience phrasing constructor for if production should be plural
-        func getPlural() -> String {
-            let count = sharedCredits?.sharedCredits.count ?? 0
             
-            return "\(count) production\(count == 0 || count > 2 ? "s" : "")"
+            modelContext.insert(newContainer)
+            try? modelContext.save()
+            
+            sharedCredits = newContainer
         }
     }
 }
