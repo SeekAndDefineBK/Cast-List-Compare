@@ -58,7 +58,7 @@ struct ContentView: View {
                 .tag(1)
             }
             .animation(.smooth, value: selectedTab)
-            .tabViewStyle(.page) // allows user to change tab with swipe
+            .tabViewStyle(.page(indexDisplayMode: .never)) // allows user to change tab with swipe
             .indexViewStyle(.page(backgroundDisplayMode: .interactive))
             
             if !titleOnTop {
@@ -68,8 +68,8 @@ struct ContentView: View {
         .background {
             LinearGradient(
                 colors: [
-                    viewModel.createGradientColor(for: colorScheme, color: .cyan), 
-                    viewModel.createGradientColor(for: colorScheme, color: .green)
+                    viewModel.createGradientColor(for: colorScheme, color: Color(uiColor: .systemGray4)),
+                    viewModel.createGradientColor(for: colorScheme, color: Color(uiColor: .systemGray3))
                 ],
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
@@ -96,7 +96,7 @@ extension ContentView {
         // MARK: ViewModel Methods
         func createGradientColor(for colorScheme: ColorScheme, color: Color) -> Color {
             // determine the opacity given the color scheme
-            let opacity = colorScheme == .light ? 0.2 : 0.5
+            let opacity = colorScheme == .light ? 1 : 0.5
             
             // return desired color with opacity applied
             return color.opacity(opacity)
