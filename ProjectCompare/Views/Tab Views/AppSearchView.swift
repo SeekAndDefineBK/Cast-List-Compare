@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AppSearchView: View {
+    @Environment(\.modelContext) var modelContext
     @AppStorage("showingHistory") var shwowingHistory: Bool = false
     @State private var viewModel = AppSearchViewModel()
     
@@ -62,7 +63,11 @@ struct AppSearchView: View {
         .sheet(isPresented: $viewModel.showingCompare) {
             Group {
                 if let person1 = viewModel.person1, let person2 = viewModel.person2 {
-                    CompareView(person1: person1, person2: person2)
+                    CompareView(
+                        person1: person1,
+                        person2: person2,
+                        modelContext: modelContext
+                    )
                 } else {
                     // Fallback view in case person1 and or person2 is nil
                     Text("Error loading comparison view")
